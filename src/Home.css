@@ -1,0 +1,24 @@
+#banner {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    height: 85vh;
+}
+
+#greet {
+    grid-column: 3/span 4;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+#greetImageArticle {
+    grid-column: 7/span 4;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+#greetImage {
+    height: 45vh;
+    width: auto;
+}
