@@ -19,22 +19,6 @@
     }
 }
 
-.learn-more-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5vw;
-    text-decoration: none;
-    color: black;
-    font-size: 2vh;
-    width: 9.375vw;
-    height: 50px;
-    background-color: rgba(100, 3, 255, 0.425);
-    img {
-      width: 1.2vw;
-    }
-  }
-
 #greet-image-article {
     grid-column: 7/span 5;
     display: flex;

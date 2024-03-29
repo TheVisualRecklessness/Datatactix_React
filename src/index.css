@@ -4,8 +4,25 @@
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
   background-color: rgb(245, 245, 245);
   font-family: 'Roboto', sans-serif;
+}
+
+.learn-more-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vw; /* 9.6px */
+  text-decoration: none;
+  border: 0px;
+  color: black;
+  font-size: 2vh; /* 21.6px */
+  width: 9.375vw; /* 180px */
+  height: 50px;
+  /* background-color: rgba(100, 3, 255, 0.425); */
+  background-color: orange;
+  img {
+    width: 1.2vw;  /* 23px */
+  }
+  cursor: pointer;
 }
