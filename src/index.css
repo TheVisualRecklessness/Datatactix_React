@@ -1,17 +1,11 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   margin: 0px;
   padding: 0px;
-  background-color: rgb(233, 233, 233);
+  background-color: rgb(245, 245, 245);
   font-family: 'Roboto', sans-serif;
-}
-
-h1 {
-  font-size: 3vw;
-  margin: 0px 0px 2vh 0px;
-}
-
-h2 {
-  font-size: 1.5vw;
-  margin: 0px 0px 2vh 0px;
-  font-style: italic;
 }

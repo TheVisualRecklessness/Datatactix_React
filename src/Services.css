@@ -1,40 +1,14 @@
-ul {
-  float: right;
-  padding: 0px;
-  margin: 0px 2vw 0px 0px;
+.section-services {
+  height: 100vh;
 }
 
-li {
-  list-style: none;
-  display: inline;
-  margin-left: 2vw;
-  margin-right: 2vw;
-}
-
-.navLink {
-  text-decoration: none;
-  color: black;
-  font-size: 1.5rem;
-  font-weight: bolder;
-}
-
-#navHome {
-  margin-left: 4vw;
-  display: inline-block;
-}
-
-nav {
-  margin: 1vh 0px 1vh 0px;
-}
-
-button {
-  width: 100px;
+#section-bi {
+  padding-top: 10vh;
 }
 
 .section-services > .services-header{
   width: 100vw;
   height: 200px;
-  grid-column: 1/span 12;
   background-position: center;
   background-size: cover;
   display: flex;

@@ -11,9 +11,9 @@ const NavBar = () => {
                 <nav>
                     <Link id="navHome" className="navLink" to="/">Datatactix</Link>
                     <ul>
-                        <li><Link className="navLink" to="/Services">Services</Link></li>
-                        <li><Link className="navLink" to="/About">About</Link></li>
-                        <li><Link className="navLink" to="/Contact">Contact</Link></li>
+                        <li><Link className="navLink" to="/Services">Servicios</Link></li>
+                        <li><Link className="navLink" to="/About">Sobre nosotros</Link></li>
+                        <li><Link className="navLink" to="/Contact">Contacto</Link></li>
                     </ul>
                 </nav>
             </header>

@@ -1,0 +1,37 @@
+header {
+  position: fixed;
+  z-index: 10;
+  background-color: rgba(255, 255, 255,0.98);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.486);
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  margin-left: auto;
+  display: flex;
+  list-style: none;
+  gap: 2vw;
+  margin-right: 4vw;
+}
+
+#navHome {
+  margin-left: 4vw;
+  display: inline-block;
+  font-size: 3vh;
+  font-weight: bolder;
+}
+
+.navLink {
+  text-decoration: none;
+  color: black;
+  font-size: 1.7vh;
+  
+}

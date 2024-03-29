@@ -1,29 +1,36 @@
 import "../Home.css";
 import Logo from "../assets/graph-and-people-svgrepo-com.svg";
+import RightArrow from "../assets/right_arrow_svg.svg";
+import Services from "./Services";
+import {Link, Routes, Route} from "react-router-dom";
 
 const Home = () => {
     return (
         <main>
-            <section id="banner">
-                <article id="greet">
+            <section id="banner-section">
+                <article id="greet-article">
                     <h1>
-                        ¡Haz crecer tu negocio y adapta las mejores
-                        prácticas y soluciones para crecer en tu área!
+                        Los datos son el activo más valioso de tu empresa
                     </h1>
-                    <h2>
-                        Comienza a aprovechar en tu propia compañia las
-                        herramientas que las grandes empresas usan.
-                    </h2>
+                    <p>
+                        En Datatactix te ayudamos a sacarles el máximo provecho.
+                    </p>
+                    <Link to="/Services" className="learn-more-button">
+                        Conoce más
+                        <img src={RightArrow} alt="right arrow"></img>
+                    </Link>
                 </article>
-                <article id="greetImageArticle">
+                <article id="greet-image-article">
                     <img 
                         src={Logo}
                         alt="img"
                         id="greetImage"
-                    >
-                    </img>
+                    ></img>
                 </article>
             </section>
+            <Routes>
+                <Route path="/Services" element={<Services />}></Route>
+            </Routes>
         </main>
     );
 };

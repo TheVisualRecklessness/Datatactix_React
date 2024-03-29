@@ -5,13 +5,14 @@ import Card from "./Card";
 
 function SimpleSlider(props) {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3500,
+        autoplaySpeed: 2000,
+        arrows: false
     };
     return (
         <>
