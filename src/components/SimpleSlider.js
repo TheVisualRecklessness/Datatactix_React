@@ -12,22 +12,21 @@ function SimpleSlider(props) {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
-        arrows: false
+        arrows: false,
+        onhover: false
     };
     return (
         <>
             <Slider {...settings}>
-            {props.services.map(service => (
-                <Card 
-                    key={service.id}
-                    title={service.title}
-                    description={service.description}
-                />
-            ))}
-            
-        </Slider>
+                {props.services.map(service => (
+                    <Card 
+                        key={service.id}
+                        title={service.title}
+                        description={service.description}
+                    />
+                ))}
+            </Slider>
         </>
-        
     );
 }
 

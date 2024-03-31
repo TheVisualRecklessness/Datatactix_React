@@ -25,13 +25,12 @@ ul {
 #navHome {
   margin-left: 4vw;
   display: inline-block;
-  font-size: 3vh;
+  font-size: 25px;
   font-weight: bolder;
 }
 
 .navLink {
   text-decoration: none;
   color: black;
-  font-size: 1.7vh;
-  
+  font-size: 16px;
 }

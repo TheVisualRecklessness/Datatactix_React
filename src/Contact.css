@@ -37,6 +37,14 @@
             font-size: 1em;
         }
 
+        #message {
+            max-width: calc(33.3333vw - 1.5625vw);
+            min-width: calc(33.3333vw - 1.5625vw);
+            max-height: 15.6453vh; /* 168.97px */
+            min-height: 6.5vh;
+            font-size: 0.989583vw; /* 19px */
+        }
+
         .form-group {
             display: flex;
             flex-direction: column;

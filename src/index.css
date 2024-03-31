@@ -16,9 +16,9 @@ body {
   text-decoration: none;
   border: 0px;
   color: black;
-  font-size: 2vh; /* 21.6px */
-  width: 9.375vw; /* 180px */
-  height: 50px;
+  font-size: 1.119751vw;  /* 1.119751vw 21.6px */
+  width: 9.375vw; /* 9.375vw 180px */
+  height: 5.393743vh; /* 5.393743vh 50px */
   /* background-color: rgba(100, 3, 255, 0.425); */
   background-color: orange;
   img {

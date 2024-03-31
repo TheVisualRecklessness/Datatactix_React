@@ -8,7 +8,7 @@
 
 .section-services > .services-header{
   width: 100vw;
-  height: 200px;
+  height: 21.5749vh; /* 200px */
   background-position: center;
   background-size: cover;
   display: flex;
@@ -30,13 +30,13 @@
 }
 
 .services-slider {
-  width: 54vw;
+  width: 54vw; /* 1036.8px width of carousel container */
 }
 
 .card {
-  height: 37.037vh;
-  width: 15.62vw;
-  margin: 1vh 1vw 1vh 1vw;
+  height: 37.037vh; /* 400px */
+  width: 15.62vw; /* 300px */
+  margin: 2vh 1vw 2vh 1vw; /* Space inside carousel */
   background-color: white;
   box-shadow: 5px 5px 0px 3px rgba(99, 3, 255, 0.5);
   border-radius: 20px;
@@ -59,4 +59,9 @@
     margin: 0px;
     align-self: self-start;
   }
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition-duration: 0.2s;
 }

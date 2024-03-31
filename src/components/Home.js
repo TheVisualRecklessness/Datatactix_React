@@ -13,7 +13,7 @@ const Home = () => {
                         Los datos son el activo más valioso de tu empresa
                     </h1>
                     <p>
-                        En Datatactix te ayudamos a sacarles el máximo provecho.
+                        En <em>Datatactix</em> te ayudamos a sacarles el máximo provecho.
                     </p>
                     <Link to="/Services" className="learn-more-button">
                         Conoce más
