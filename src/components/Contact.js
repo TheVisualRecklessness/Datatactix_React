@@ -1,7 +1,45 @@
 import '../Contact.css';
 import RightArrow from "../assets/right_arrow_svg.svg";
+import { useState } from 'react';
+
 
 const Contact = () => {
+    const [company, setCompany] = useState('');
+    const [email, setEmail] = useState('');
+    const [disabledSubmit, setDisabledSubmit] = useState(true);
+
+    const handleCompanyChange = (e) => {
+        setCompany(e.target.value);
+        if(e.target.value.length < 1){
+            e.target.style.borderColor = 'red';
+        }
+        else {
+            e.target.style.borderColor = 'black';
+        }
+        if(e.target.value.length < 1 || email.indexOf('@') < 0 || email.indexOf('.') < 0){
+            setDisabledSubmit(true);
+        }
+        else {
+            setDisabledSubmit(false);
+        }
+    };
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        if(e.target.value.indexOf('@') < 0 || e.target.value.indexOf('.') < 0){
+            e.target.style.borderColor = 'red';
+        }
+        else {
+            e.target.style.borderColor = 'black';
+        }
+        if(company.length < 1 || e.target.value.indexOf('@') < 0 || e.target.value.indexOf('.') < 0){
+            setDisabledSubmit(true);
+        }
+        else {
+            setDisabledSubmit(false);
+        }
+    };
+
     return (
         <main>
             <section className='contact-form-section'>
@@ -25,17 +63,34 @@ const Contact = () => {
                         </div>
                         <div className='form-group'>
                             <label htmlFor='company'>Empresa *</label>
-                            <input className='input-form' type='text' id='company' name='company' required />
+                            <input 
+                                value={company} 
+                                onChange={handleCompanyChange} 
+                                className='input-form' 
+                                type='text' id='company' 
+                                name='company' required />
                         </div>
                         <div className='form-group'>
                             <label htmlFor='email'>Correo electrónico *</label>
-                            <input className='input-form' type='email' id='email' name='email' required />
+                            <input 
+                                value={email} 
+                                onChange={handleEmailChange} 
+                                className='input-form' 
+                                type='email' 
+                                id='email' 
+                                name='email' 
+                                required />
                         </div>
                         <div className='form-group'>
                             <label htmlFor='message'>Mensaje</label>
                             <textarea className='input-form' id='message' name='message'></textarea>
                         </div>
-                        <button id='contact-form-submit' type='submit' className="learn-more-button">
+                        <button 
+                            id='contact-form-submit' 
+                            type='submit' 
+                            className="learn-more-button" 
+                            disabled={disabledSubmit}
+                        >
                             Enviar
                             <img src={RightArrow} alt="right arrow"></img>
                         </button>
