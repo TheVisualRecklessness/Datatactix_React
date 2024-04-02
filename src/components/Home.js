@@ -9,10 +9,10 @@ const Home = () => {
         <main>
             <section id="banner-section">
                 <article id="greet-article">
-                    <h1>
+                    <h1 className="banner-text">
                         Los datos son el activo más valioso de tu empresa
                     </h1>
-                    <p>
+                    <p className="banner-text">
                         En <em>Datatactix</em> te ayudamos a sacarles el máximo provecho.
                     </p>
                     <Link to="/Services" className="learn-more-button">

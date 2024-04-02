@@ -40,6 +40,18 @@ const Contact = () => {
         }
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form submitted');
+        console.log('Name:', e.target.name.value);
+        console.log('Company:', e.target.company.value);
+        console.log('Phone:', e.target.phone.value);
+        console.log('Email:', e.target.email.value);
+        console.log('Message:', e.target.message.value);
+        e.target.reset();
+        setCompany('');
+        setEmail('');
+    };
     return (
         <main>
             <section className='contact-form-section'>
@@ -52,7 +64,7 @@ const Contact = () => {
                             contigo lo más pronto posible.
                         </p>
                     </div>
-                    <form action='/contact' method='POST'>
+                    <form action='/contact' method='POST' onSubmit={handleSubmit}>
                         <div className='form-group'>
                             <label htmlFor='name'>Nombre</label>
                             <input className='input-form' type='text' id='name' name='name' />
