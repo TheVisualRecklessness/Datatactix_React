@@ -1,4 +1,4 @@
-import "../Home.css";
+import '../styles/Home.css';
 import Logo from "../assets/graph-and-people-svgrepo-com.svg";
 import RightArrow from "../assets/right_arrow_svg.svg";
 import Services from "./Services";

@@ -1,4 +1,4 @@
-import '../Contact.css';
+import '../styles/Contact.css';
 import RightArrow from "../assets/right_arrow_svg.svg";
 import { useState } from 'react';
 

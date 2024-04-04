@@ -1,22 +1,22 @@
-import './navBar.css';
+import './styles/navBar.css';
 import NavBar from './components/Navbar';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Services from "./components/Services";
-import Contact from "./components/Contact";
+import Home from "./views/Home";
+import About from "./views/About";
+import Services from "./views/Services";
+import Contact from "./views/Contact";
 
 function App() {
   return (
-      <Router>
-        <NavBar />
-        <Routes>
-            <Route path="*" element={<Home />}></Route>
-            <Route path="/Services" element={<Services />}></Route>
-            <Route path="/About" element={<About />}></Route>
-            <Route path="/Contact" element={<Contact />}></Route>
-        </Routes>
-      </Router>
+    <Router>
+      <NavBar />
+      <Routes>
+          <Route path="*" element={<Home />}></Route>
+          <Route path="/Services" element={<Services />}></Route>
+          <Route path="/About" element={<About />}></Route>
+          <Route path="/Contact" element={<Contact />}></Route>
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,5 +1,5 @@
-import ServicesArticles from "./ServicesArticles";
-import '../Services.css';
+import ServicesArticles from "../components/ServicesArticles";
+import '../styles/Services.css';
 import { React, Suspense } from "react";
 import { biArray, webDevArray, itArray } from "../servicesInformationArray";
 
