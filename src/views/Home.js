@@ -3,8 +3,19 @@ import Logo from "../assets/graph-and-people-svgrepo-com.svg";
 import RightArrow from "../assets/right_arrow_svg.svg";
 import Services from "./Services";
 import {Link, Routes, Route} from "react-router-dom";
+import { useContext, useEffect } from 'react';
+import { NavBarContext } from '../context/NavBarContext';
 
 const Home = () => {
+    const navBarRef = useContext(NavBarContext);
+
+    useEffect(() => {
+       if (navBarRef.current) {
+           navBarRef.current.classList.add("scrolled");
+           console.log(navBarRef.current.classList);
+       }
+    }, [navBarRef]);
+
     return (
         <main>
             <section id="banner-section">

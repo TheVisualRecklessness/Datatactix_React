@@ -8,10 +8,10 @@ header {
   box-shadow: none;
 }
 
-.navHomeScrolled {
+/* .navHomeScrolled {
   background-color: rgba(255, 255, 255,0.98);
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.486);
-}
+} */
 
 nav {
   width: 100vw;
@@ -32,11 +32,12 @@ ul {
   display: inline-block;
   font-size: 25px;
   font-weight: bolder;
-  color: black;
+  color: white;
 }
 
 .navLink {
   text-decoration: none;
   color: white;
   font-size: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }

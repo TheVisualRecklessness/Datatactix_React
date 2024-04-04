@@ -1,8 +1,12 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { NavBarContext } from "../context/NavBarContext";
 
 const NavBar = () => {
+    const navBarRef = useContext(NavBarContext);
+
     return (
-        <header>
+        <header ref={navBarRef}>
             <nav>
                 <Link id="navHome" className="navLink" to="/">Datatactix</Link>
                 <ul>
