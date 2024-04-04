@@ -56,4 +56,5 @@
 #contact-form-submit {
     align-self: flex-end;
     width: 6.5104vw; /* 125px */
+    background-color: rgba(100, 3, 255, 0.425);
 }

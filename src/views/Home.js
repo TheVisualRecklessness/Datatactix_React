@@ -1,10 +1,10 @@
 import '../styles/Home.css';
 import Logo from "../assets/graph-and-people-svgrepo-com.svg";
-import RightArrow from "../assets/right_arrow_svg.svg";
 import Services from "./Services";
-import {Link, Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useContext, useEffect } from 'react';
 import { NavBarContext } from '../context/NavBarContext';
+import ActionButton from "../components/ActionButton";
 
 const Home = () => {
     const navBarRef = useContext(NavBarContext);
@@ -32,10 +32,7 @@ const Home = () => {
                     <p className="banner-text">
                         En <em>Datatactix</em> te ayudamos a sacarles el máximo provecho.
                     </p>
-                    <Link to="/Services" className="learn-more-button">
-                        Conoce más
-                        <img src={RightArrow} alt="right arrow"></img>
-                    </Link>
+                    <ActionButton text="Conoce más" link="/Services" />
                 </article>
                 <article id="greet-image-article">
                     <img 

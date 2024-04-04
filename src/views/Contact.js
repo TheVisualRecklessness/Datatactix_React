@@ -107,7 +107,7 @@ const Contact = () => {
                         <button 
                             id='contact-form-submit' 
                             type='submit' 
-                            className="learn-more-button" 
+                            className="action-button" 
                             disabled={disabledSubmit}
                         >
                             Enviar
