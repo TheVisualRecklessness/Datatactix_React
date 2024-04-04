@@ -3,6 +3,10 @@
     grid-template-columns: repeat(12, 1fr);
     height: 90vh;
     padding-top: 10vh;
+    /* background: linear-gradient(-45deg, #9924bd, #39b2d4,#77f7d3); */
+    background: linear-gradient(45deg, #8810d2 26%, #1c00ff 49%, #1fc9d4 74%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
 }
 
 #greet-article {
@@ -19,6 +23,11 @@
     }
 }
 
+.staticColorNav,
+.banner-text {
+    animation: changeColor 15s infinite;
+}
+
 #greet-image-article {
     grid-column: 7/span 5;
     display: flex;
@@ -31,3 +40,27 @@
     width: auto;
 }
 
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        color: #ffffff;
+    }
+    50% {
+        color: #000000;
+    }
+    100% {
+        color: #ffffff;
+    }
+}
