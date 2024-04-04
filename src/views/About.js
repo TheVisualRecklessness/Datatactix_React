@@ -1,6 +1,14 @@
 import '../styles/About.css';
+import { useContext, useEffect } from 'react';
+import { NavBarContext } from '../context/NavBarContext';
 
 const About = () => {
+    const navBarRef = useContext(NavBarContext);
+
+    useEffect(() => {
+        navBarRef.current.classList.add("nav-background");
+    }, [navBarRef]);
+
     return (
         <main>
             <section className='about-section'>

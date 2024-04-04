@@ -10,10 +10,16 @@ const Home = () => {
     const navBarRef = useContext(NavBarContext);
 
     useEffect(() => {
-       if (navBarRef.current) {
-           navBarRef.current.classList.add("scrolled");
-           console.log(navBarRef.current.classList);
-       }
+        navBarRef.current.classList.remove("nav-background");
+        const checkScroll = () => {
+            if (window.scrollY > 0) {
+                navBarRef.current.classList.add("nav-background");
+            } else if(window.scrollY === 0) {
+                navBarRef.current.classList.remove("nav-background");
+            }
+        };
+        window.addEventListener("scroll", checkScroll);
+        return () => window.removeEventListener("scroll", checkScroll);
     }, [navBarRef]);
 
     return (
@@ -39,6 +45,9 @@ const Home = () => {
                     ></img>
                 </article>
             </section>
+            <div style={{height:400}}>
+
+            </div>
             <Routes>
                 <Route path="/Services" element={<Services />}></Route>
             </Routes>
