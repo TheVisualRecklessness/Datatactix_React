@@ -11,7 +11,7 @@ const NavBar = () => {
         console.log("routing useEffect")
         setToggleInfo(false);
         window.scrollTo(0, 0);
-        if (location.pathname !== "/") { //if page is not home
+        if (location.pathname !== "/Datatactix_React/") { //if page is not home
             navBarRef.current.classList.add("nav-background");
             navBarRef.current.classList.remove("test");
         } else { //if page is home
@@ -22,7 +22,7 @@ const NavBar = () => {
     useEffect(() => { //changes header class when scrolling home page
         console.log("scrolling useEffect");
         const checkScroll = () => {
-            if(location.pathname === "/") {
+            if(location.pathname === "/Datatactix_React/") {
                 if(window.scrollY === 0 && !toggleInfo) {
                     navBarRef.current.classList.remove("nav-background", "test");
                 } else if (window.scrollY > 0 && !toggleInfo){
