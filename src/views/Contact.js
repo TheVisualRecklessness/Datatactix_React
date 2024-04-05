@@ -1,19 +1,12 @@
 import '../styles/Contact.css';
 import RightArrow from "../assets/right_arrow_svg.svg";
-import { useState, useContext, useEffect } from 'react';
-import { NavBarContext } from '../context/NavBarContext';
+import { useState } from 'react';
 
 
 const Contact = () => {
     const [company, setCompany] = useState('');
     const [email, setEmail] = useState('');
     const [disabledSubmit, setDisabledSubmit] = useState(true);
-
-    const navBarRef = useContext(NavBarContext);
-
-    useEffect(() => {
-        navBarRef.current.classList.add("nav-background");
-    }, [navBarRef]);
 
     const handleCompanyChange = (e) => {
         setCompany(e.target.value);

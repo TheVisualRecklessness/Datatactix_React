@@ -1,16 +1,9 @@
 import ServicesArticles from "../components/ServicesArticles";
 import '../styles/Services.css';
-import { React, Suspense, useContext, useEffect } from "react";
-import { NavBarContext } from '../context/NavBarContext';
+import { React, Suspense } from "react";
 import { biArray, webDevArray, itArray } from "../servicesInformationArray";
 
 const Services = () => {
-    const navBarRef = useContext(NavBarContext);
-
-    useEffect(() => {
-        navBarRef.current.classList.add("nav-background");
-    }, [navBarRef]);
-
     return (
         <main>
             <section id="section-bi" className="section-services">

@@ -2,26 +2,9 @@ import '../styles/Home.css';
 import Logo from "../assets/graph-and-people-svgrepo-com.svg";
 import Services from "./Services";
 import { Routes, Route } from "react-router-dom";
-import { useContext, useEffect } from 'react';
-import { NavBarContext } from '../context/NavBarContext';
 import ActionButton from "../components/ActionButton";
 
 const Home = () => {
-    const navBarRef = useContext(NavBarContext);
-
-    useEffect(() => {
-        navBarRef.current.classList.remove("nav-background");
-        const checkScroll = () => {
-            if (window.scrollY > 0) {
-                navBarRef.current.classList.add("nav-background");
-            } else if(window.scrollY === 0) {
-                navBarRef.current.classList.remove("nav-background");
-            }
-        };
-        window.addEventListener("scroll", checkScroll);
-        return () => window.removeEventListener("scroll", checkScroll);
-    }, [navBarRef]);
-
     return (
         <main>
             <section id="banner-section">
