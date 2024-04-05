@@ -7,29 +7,36 @@ const NavBar = () => {
     const location = useLocation();
     const [toggleInfo, setToggleInfo] = useState(false);
 
-    useEffect(() => {
-        if (location.pathname !== "/") { //if page is not home
-            navBarRef.current.classList.add("nav-background");
-        } else { //if page is home
-            navBarRef.current.classList.remove("nav-background");
-            setToggleInfo(false);
-            window.scrollTo(0, 0);
-            const checkScroll = () => {
-                if (window.scrollY > 0) {
-                    navBarRef.current.classList.add("nav-background");
-                } else if(window.scrollY === 0) {
-                    navBarRef.current.classList.remove("nav-background");
-                }
-            };
-            window.addEventListener("scroll", checkScroll);
-            return () => window.removeEventListener("scroll", checkScroll);
-        }
+    useEffect(() => { //resets classes and state when changing pages
+        console.log("routing useEffect")
         setToggleInfo(false);
         window.scrollTo(0, 0);
-        console.log("services clicked");
+        if (location.pathname !== "/") { //if page is not home
+            navBarRef.current.classList.add("nav-background");
+            navBarRef.current.classList.remove("test");
+        } else { //if page is home
+            navBarRef.current.classList.remove("nav-background");
+        }
     }, [location.pathname, navBarRef]);
 
-    useEffect(() => {
+    useEffect(() => { //changes header class when scrolling home page
+        console.log("scrolling useEffect");
+        const checkScroll = () => {
+            if(location.pathname === "/") {
+                if(window.scrollY === 0 && !toggleInfo) {
+                    navBarRef.current.classList.remove("nav-background", "test");
+                } else if (window.scrollY > 0 && !toggleInfo){
+                    navBarRef.current.classList.add("nav-background");
+                }
+            }
+        };
+        window.addEventListener("scroll", checkScroll);
+        return () => {
+            window.removeEventListener("scroll", checkScroll);
+        };
+    }, [navBarRef, location.pathname, toggleInfo]);
+
+    useEffect(() => { //toggles info section when clicking on services
         const handleClick = () => {
             if(location.pathname === "/" && window.scrollY === 0) {
                 if(navBarRef.current.classList.contains("nav-background")) {
@@ -52,8 +59,6 @@ const NavBar = () => {
         };
     }, [navBarRef, serviceInfo, location.pathname]);
 
-    
-
     return (
         <header ref={navBarRef}>
             <nav>
@@ -66,7 +71,7 @@ const NavBar = () => {
             </nav>
             <section id="info-section-header" style={{ display: toggleInfo ? "block" : "none" }}>
                 <div id="info-header" >
-                    <h1>hola</h1>
+                    <h3>Services summary</h3>
                 </div>
             </section>
         </header>
