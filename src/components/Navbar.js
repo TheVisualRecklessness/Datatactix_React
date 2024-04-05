@@ -38,7 +38,7 @@ const NavBar = () => {
 
     useEffect(() => { //toggles info section when clicking on services
         const handleClick = () => {
-            if(location.pathname === "/" && window.scrollY === 0) {
+            if(location.pathname === "/Datatactix_React/" && window.scrollY === 0) {
                 if(navBarRef.current.classList.contains("nav-background")) {
                     navBarRef.current.classList.remove("nav-background");
                 } else {
@@ -62,7 +62,7 @@ const NavBar = () => {
     return (
         <header ref={navBarRef}>
             <nav>
-                <Link id="navHome" className="navLink" to="/">Datatactix</Link>
+                <Link id="navHome" className="navLink" to="/Datatactix_React/">Datatactix</Link>
                 <ul>
                     <li ref={serviceInfo} className="navLink" id="servicios-nav">Servicios</li>
                     <li><Link className="navLink" to="/About">Sobre nosotros</Link></li>
