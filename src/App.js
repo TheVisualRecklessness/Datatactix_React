@@ -11,7 +11,7 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
-          <Route path="/Datatactix_React/" element={<Home />}></Route>
+          <Route path="/Datatactix_React//*" element={<Home />}></Route>
           <Route path="/Services" element={<Services />}></Route>
           <Route path="/About" element={<About />}></Route>
           <Route path="/Contact" element={<Contact />}></Route>

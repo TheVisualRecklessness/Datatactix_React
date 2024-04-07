@@ -82,3 +82,58 @@ export const itArray = [
         description: "it3 description"
     }
 ];
+
+export const biInfoArray = [
+    {
+        id: "b1",
+        title: "Tableros",
+        description: "Poderosas visualizaciones interactivas y tableros dinámicos."
+    },
+    {
+        id: "b2",
+        title: "Recopilación e Integración de Datos",
+        description: "Recopilar y consolidar datos dispersos de múltiples fuentes en una única fuente."
+    },
+    {
+        id: "b3",
+        title: "Análisis Profundo y Acción Inteligente",
+        description: "Análisis descriptivos hasta predictivos y prescriptivos."
+    }
+
+];
+
+export const webInfoArray = [
+    {
+        id: "w1",
+        title: "Diseño Web Creativo y Atractivo",
+        description: "Sitios web impactantes y visualmente atractivos.",
+    },
+    {
+        id: "w2",
+        title: "Optimización para Motores de Búsqueda (SEO)",
+        description: "Maximización de la visibilidad de tu sitio web en los motores de búsqueda."
+    },
+    {
+        id: "w3",
+        title: "Integración de Redes Sociales y Marketing Digital",
+        description: "Integración de tus perfiles de redes sociales y estrategias de marketing digital."
+    }
+];
+
+export const itInfoArray = [
+    {
+        id: "i1",
+        title: "it1",
+        description: "it1 description"
+    },
+    {
+        id: "i2",
+        title: "it2",
+        description: "it2 description"
+    },
+    {
+        id: "i3",
+        title: "it3",
+        description: "it3 description"
+    }
+];

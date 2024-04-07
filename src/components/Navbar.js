@@ -1,14 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
+import { biInfoArray, webInfoArray, itInfoArray } from "../servicesInformationArray";
 
 const NavBar = () => {
     const navBarRef = useRef(null);
     const serviceInfo = useRef(null);
+    const biRef = useRef(null);
+    const webRef = useRef(null);
+    const itRef = useRef(null);
     const location = useLocation();
     const [toggleInfo, setToggleInfo] = useState(false);
+    const [servicesInfo, setServicesInfo] = useState(biInfoArray);
 
     useEffect(() => { //resets classes and state when changing pages
-        console.log("routing useEffect")
         setToggleInfo(false);
         window.scrollTo(0, 0);
         if (location.pathname !== "/Datatactix_React/") { //if page is not home
@@ -19,8 +23,20 @@ const NavBar = () => {
         }
     }, [location.pathname, navBarRef]);
 
+    useEffect(() => { //reset info section state when changing pages
+        const  currentBiRef = biRef.current;
+        const currentWebRef = webRef.current;
+        const currentItRef = itRef.current;
+
+        return () => {
+            setServicesInfo(biInfoArray);
+            currentBiRef.classList.add("service-selected-header");
+            currentWebRef.classList.remove("service-selected-header");
+            currentItRef.classList.remove("service-selected-header");
+        };
+    }, [location.pathname]);
+
     useEffect(() => { //changes header class when scrolling home page
-        console.log("scrolling useEffect");
         const checkScroll = () => {
             if(location.pathname === "/Datatactix_React/") {
                 if(window.scrollY === 0 && !toggleInfo) {
@@ -45,10 +61,11 @@ const NavBar = () => {
                     navBarRef.current.classList.add("nav-background");
                 }
             }
-            setToggleInfo(prevToggleInfo => {
-                const newToggleInfo = !prevToggleInfo;
-                return newToggleInfo;
-            });
+            if(toggleInfo) {
+                setToggleInfo(false);
+            } else {
+                setToggleInfo(true);
+            }
         };
     
         const currentServiceInfo = serviceInfo.current;
@@ -57,7 +74,56 @@ const NavBar = () => {
         return () => {
             currentServiceInfo.removeEventListener("click", handleClick);
         };
-    }, [navBarRef, serviceInfo, location.pathname]);
+    }, [navBarRef, serviceInfo, location.pathname, toggleInfo]);
+
+    useEffect(() => { //closes service info section when clicking outside of header
+        const handleClickOutside = (e) => {
+            if(!navBarRef.current.contains(e.target)) {
+                setToggleInfo(false);
+                if(location.pathname === "/Datatactix_React/" && window.scrollY === 0) {
+                    navBarRef.current.classList.remove("nav-background");
+                }
+            }
+        };
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    },[navBarRef, location.pathname]);
+
+    useEffect(() => { //changes info section content when clicking on services
+        const biClick = () => {
+            setServicesInfo(biInfoArray);
+            currentBiRef.classList.add("service-selected-header");
+            currentWebRef.classList.remove("service-selected-header");
+            currentItRef.classList.remove("service-selected-header");
+        };
+        const webClick = () => {
+            setServicesInfo(webInfoArray);
+            currentBiRef.classList.remove("service-selected-header");
+            currentWebRef.classList.add("service-selected-header");
+            currentItRef.classList.remove("service-selected-header");
+        };
+        const itClick = () => {
+            setServicesInfo(itInfoArray);
+            currentBiRef.classList.remove("service-selected-header");
+            currentWebRef.classList.remove("service-selected-header");
+            currentItRef.classList.add("service-selected-header");
+        };
+
+        const currentBiRef = biRef.current;
+        const currentWebRef = webRef.current;
+        const currentItRef = itRef.current;
+        currentBiRef.addEventListener("click", biClick);
+        currentWebRef.addEventListener("click", webClick);
+        currentItRef.addEventListener("click", itClick);
+
+        return () => {
+            currentBiRef.removeEventListener("click", biClick);
+            currentWebRef.removeEventListener("click", webClick);
+            currentItRef.removeEventListener("click", itClick);
+        };
+    },[biRef, webRef, itRef]);
 
     return (
         <header ref={navBarRef}>
@@ -69,9 +135,24 @@ const NavBar = () => {
                     <li><Link className="navLink" to="/Contact">Contacto</Link></li>
                 </ul>
             </nav>
-            <section id="info-section-header" style={{ display: toggleInfo ? "block" : "none" }}>
-                <div id="info-header" >
-                    <h3>Services summary</h3>
+            <section id="info-section-header" style={{ display: toggleInfo ? "flex" : "none" }}>
+                <div id="info-header">
+                    <div id="info-titles-header">
+                        <h3 ref={biRef} className="service-header service-selected-header">Inteligencia de negocios</h3>
+                        <h3 ref={webRef} className="service-header">Desarrollo web</h3>
+                        <h3 ref={itRef} className="service-header">Soluciones IT</h3>
+                    </div>
+                    <div className="vertical-line"></div>
+                    <div id="info-service-header">
+                        {servicesInfo.map(service => {
+                            return (
+                                <div key={service.id}>
+                                    <h3>{service.title}</h3>
+                                    <p>{service.description}</p>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </section>
         </header>
