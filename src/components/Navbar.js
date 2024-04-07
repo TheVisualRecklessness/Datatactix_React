@@ -40,9 +40,10 @@ const NavBar = () => {
         const checkScroll = () => {
             if(location.pathname === "/Datatactix_React/") {
                 if(window.scrollY === 0 && !toggleInfo) {
-                    navBarRef.current.classList.remove("nav-background", "test");
+                    navBarRef.current.classList.remove("nav-background");
                 } else if (window.scrollY > 0 && !toggleInfo){
                     navBarRef.current.classList.add("nav-background");
+                    navBarRef.current.classList.add("nav-transition-in");
                 }
             }
         };
@@ -136,7 +137,7 @@ const NavBar = () => {
                 </ul>
             </nav>
             <section id="info-section-header" style={{ display: toggleInfo ? "flex" : "none" }}>
-                <div id="info-header">
+                <article id="info-header">
                     <div id="info-titles-header">
                         <h3 ref={biRef} className="service-header service-selected-header">Inteligencia de negocios</h3>
                         <h3 ref={webRef} className="service-header">Desarrollo web</h3>
@@ -153,7 +154,7 @@ const NavBar = () => {
                             );
                         })}
                     </div>
-                </div>
+                </article>
             </section>
         </header>
     );

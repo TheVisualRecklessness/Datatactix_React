@@ -29,6 +29,10 @@ header {
   }
 }
 
+.nav-transition-in {
+  transition: background-color 0.25s, box-shadow 0.25s;
+}
+
 nav {
   width: 100vw;
   height: 10vh;
@@ -46,8 +50,7 @@ ul {
 }
 
 #servicios-nav {
-  cursor: pointer
-  
+  cursor: pointer;
 }
 
 #servicios-nav::selection {
