@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import { biInfoArray, webInfoArray, itInfoArray } from "../servicesInformationArray";
+import ArrowHead from "../assets/right_arrow_head.svg";
 
 const NavBar = () => {
     const navBarRef = useRef(null);
@@ -138,16 +139,31 @@ const NavBar = () => {
             </nav>
             <section id="info-section-header" style={{ display: toggleInfo ? "flex" : "none" }}>
                 <article id="info-header">
+                    <div id="options-header">
+                        <Link className="option-link-header" to="/Services">
+                            Conoce nuestros servicios
+                        </Link>
+                    </div>
+                    <div className="vertical-line"></div>
                     <div id="info-titles-header">
-                        <h3 ref={biRef} className="service-header service-selected-header">Inteligencia de negocios</h3>
-                        <h3 ref={webRef} className="service-header">Desarrollo web</h3>
-                        <h3 ref={itRef} className="service-header">Soluciones IT</h3>
+                        <h3 ref={biRef} className="service-header service-selected-header">
+                            Inteligencia de negocios
+                            <img src={ArrowHead} alt="Right arrow head" />
+                        </h3>
+                        <h3 ref={webRef} className="service-header">
+                            Desarrollo web
+                            <img src={ArrowHead} alt="Right arrow head" />
+                        </h3>
+                        <h3 ref={itRef} className="service-header">
+                            Soluciones IT
+                            <img src={ArrowHead} alt="Right arrow head" />
+                        </h3>
                     </div>
                     <div className="vertical-line"></div>
                     <div id="info-service-header">
                         {servicesInfo.map(service => {
                             return (
-                                <div key={service.id}>
+                                <div key={service.id} className="service-description-header">
                                     <h3>{service.title}</h3>
                                     <p>{service.description}</p>
                                 </div>

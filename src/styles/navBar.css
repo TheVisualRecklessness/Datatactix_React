@@ -1,7 +1,6 @@
 header {
   position: fixed;
   z-index: 10;
-  /* height: 10vh; */
   width: 100vw;
   background-color: transparent;
   box-shadow: none;
@@ -13,6 +12,7 @@ header {
 .nav-background {
   background-color: rgba(255, 255, 255,0.98);
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.486);
+
   #navHome {
     margin-left: 4vw;
     display: inline-block;
@@ -82,11 +82,28 @@ ul {
 
   #info-header {
     display: flex;
-    width: 66.6666vw;
+    width: 66vw;
     height: 40vh;
 
+    #options-header {
+      width: 18vw;
+      display: flex;
+      flex-flow: column;
+      gap: 5vh;
+      padding: 0vh 1vw;
+
+      .option-link-header {
+        text-decoration: none;
+        color: black;
+        padding: 1vh 1vw;
+        font-size: 1.17em;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    }
+
     #info-titles-header {
-      width: 16.3333vw;
+      width: 18vw;
       display: flex;
       flex-flow: column;
       gap: 5vh;
@@ -95,6 +112,14 @@ ul {
       .service-header {
         cursor: pointer;
         padding: 1vh 1vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+          width: 1.5vw;
+          height: 1.5vw;
+        }
       }
       .service-selected-header {
         color: rgb(99, 3, 255);
@@ -104,11 +129,19 @@ ul {
     }
 
     #info-service-header {
-      width: 50.3333vw;
+      width: 30vw;
       display: flex;
       flex-flow: column;
       justify-content: space-around;
       padding: 1vw 1vw;
+    }
+
+    .service-description-header {
+      padding: 1vh 1vw;
+      
+      h3 {
+        padding-bottom: 5px;
+      }
     }
   }
 }
