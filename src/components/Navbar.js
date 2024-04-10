@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
-import { biInfoArray, webInfoArray, itInfoArray } from "../servicesInformationArray";
+import { biInfoArray, webInfoArray, itInfoArray } from "../data/servicesInformationArray";
 import ArrowHead from "../assets/right_arrow_head.svg";
 
 const NavBar = () => {

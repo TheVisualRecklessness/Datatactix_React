@@ -1,0 +1,27 @@
+footer {
+    height: 300px;
+    background-color: #8810d24d;
+    display: grid;
+    grid-template-areas: "info links"
+                         "info links"
+                         "info links"
+                         "copyright socials";
+    #copyright-footer {
+        grid-area: copyright;
+        align-self: end;
+        justify-self: center;
+    }
+    #socials-footer {
+        grid-area: socials;
+        align-self: center;
+        justify-self: center;
+        width: 60%;
+        display: flex;
+        justify-content: space-evenly;
+
+        .social-icon {
+            width: auto;
+            height: 50px;
+        }
+    }
+}

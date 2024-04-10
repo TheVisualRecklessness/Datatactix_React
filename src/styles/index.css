@@ -29,7 +29,7 @@ body {
 
 .card {
   height: 334px; /* 400px */
-  width: 250px; /* 300px */
+  width: 300px; /* 300px */
   margin: 0; /* Space inside carousel */
   background-color: white;
   /* box-shadow: 5px 5px 0px 3px rgba(99, 3, 255, 0.5); */
@@ -37,6 +37,10 @@ body {
   display: grid !important;
   grid-template-areas: "image" "image" "title" "paragraph";
   grid-template-rows: 10vh 1fr 0.5fr 1fr;
+  
+  transform: scale(1);
+  transition: transform 0.2s ease;
+
   h2 {
     grid-area: title;
     font-size: 18px;
@@ -61,5 +65,4 @@ body {
 
 .card:hover {
   transform: scale(1.05);
-  transition-duration: 0.2s;
 }

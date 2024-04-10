@@ -169,16 +169,19 @@ export const generalServicesInfo = [
     },
     {
         id: "w2",
+        image: "https://media.istockphoto.com/id/1279128074/es/vector/personas-que-usan-el-cuadro-de-b%C3%BAsqueda-para-la-consulta.jpg?s=612x612&w=0&k=20&c=WIMz_-6aEh_T_iF2GvCpdsgW3A8TVdYSblcQvYsFfEE=",
         title: "Optimización para Motores de Búsqueda (SEO)",
         description: "Maximización de la visibilidad de tu sitio web en los motores de búsqueda."
     },
     {
         id: "i1",
+        image: "https://media.istockphoto.com/id/1398132096/es/vector/icono-de-signo-de-interrogaci%C3%B3n.jpg?s=612x612&w=0&k=20&c=9OiZEV0lWrEf80Bhs-9sCKF_cNh6rGlH-Z37vmvGtlc=",
         title: "it1",
         description: "it1 description"
     },
     {
         id: "i2",
+        image: "https://media.istockphoto.com/id/1398132096/es/vector/icono-de-signo-de-interrogaci%C3%B3n.jpg?s=612x612&w=0&k=20&c=9OiZEV0lWrEf80Bhs-9sCKF_cNh6rGlH-Z37vmvGtlc=",
         title: "it2",
         description: "it2 description"
     }
