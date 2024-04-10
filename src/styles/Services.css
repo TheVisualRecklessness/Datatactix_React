@@ -32,36 +32,3 @@
 .services-slider {
   width: 54vw; /* 1036.8px width of carousel container */
 }
-
-.card {
-  height: 37.037vh; /* 400px */
-  width: 15.62vw; /* 300px */
-  margin: 2vh 1vw 2vh 1vw; /* Space inside carousel */
-  background-color: white;
-  box-shadow: 5px 5px 0px 3px rgba(99, 3, 255, 0.5);
-  border-radius: 20px;
-  display: grid !important;
-  grid-template-areas: "title" "paragraph" "paragraph";
-  grid-template-rows: 10.2254vh 1fr 1fr;
-  h2 {
-    grid-area: title;
-    font-size: 1.2vw;
-    padding: 0px 10px 0px 10px;
-    text-align: center;
-    align-self: center;
-    margin: 0px;
-  }
-  p {
-    grid-area: paragraph;
-    font-size: 0.777vw;
-    padding: 0px 10px 0px 10px;
-    text-align: justify;
-    margin: 0px;
-    align-self: self-start;
-  }
-}
-
-.card:hover {
-  transform: scale(1.05);
-  transition-duration: 0.2s;
-}

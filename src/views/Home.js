@@ -3,6 +3,8 @@ import Logo from "../assets/graph-and-people-svgrepo-com.svg";
 import Services from "./Services";
 import { Routes, Route } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
+import { generalServicesInfo } from "../servicesInformationArray";
+import Card from "../components/Card";
 
 const Home = () => {
     return (
@@ -25,9 +27,21 @@ const Home = () => {
                     ></img>
                 </article>
             </section>
-            <div style={{height:400}}>
-
-            </div>
+            <section id="que-hacemos-section">
+                <h2 className="section-title">
+                    ¿Cómo te ayuda Datatactix?
+                </h2>
+                <div id="que-hacemos-container">
+                    {generalServicesInfo.map(info => {
+                        return <Card
+                            key={info.id}
+                            image={info.image}
+                            title={info.title}
+                            description={info.description}
+                        />
+                    })}
+                </div>
+            </section>
             <Routes>
                 <Route path="/Services" element={<Services />}></Route>
             </Routes>

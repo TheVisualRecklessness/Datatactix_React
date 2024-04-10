@@ -40,6 +40,26 @@
     width: auto;
 }
 
+#que-hacemos-section {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-title {
+    text-align: center;
+    align-self: center;
+    font-size: 2rem;
+}
+
+#que-hacemos-container {
+    margin: 2vh 0 0 0;
+    width: 85vw;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
 @keyframes gradient {
     0% {
       background-position: 0% 50%;

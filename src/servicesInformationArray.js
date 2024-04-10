@@ -86,16 +86,19 @@ export const itArray = [
 export const biInfoArray = [
     {
         id: "b1",
+        image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         title: "Tableros",
         description: "Poderosas visualizaciones interactivas y tableros dinámicos."
     },
     {
         id: "b2",
+        image: "https://media.istockphoto.com/id/1480239219/es/foto/un-analista-utiliza-una-computadora-y-un-panel-de-control-para-el-an%C3%A1lisis-de-negocios-de.jpg?s=612x612&w=0&k=20&c=BYWWoy2RordEovmXC5gWexCm529iXMgPZp6RoAXgpp8=",
         title: "Recopilación e Integración de Datos",
         description: "Recopilar y consolidar datos dispersos de múltiples fuentes en una única fuente."
     },
     {
         id: "b3",
+        image: "https://media.istockphoto.com/id/1402667894/es/foto/pantalla-de-conferencia-de-energ%C3%ADa.jpg?s=612x612&w=0&k=20&c=if8B0E4TJ1ohnU-yZKGXosQfx2ctOh7JTWllo6VxWkc=",
         title: "Análisis Profundo y Acción Inteligente",
         description: "Análisis descriptivos hasta predictivos y prescriptivos."
     }
@@ -105,6 +108,7 @@ export const biInfoArray = [
 export const webInfoArray = [
     {
         id: "w1",
+        image: "https://media.istockphoto.com/id/1206638576/es/foto/dise%C3%B1ador-de-sitios-web-dise%C3%B1o-de-aplicaciones-de-planificaci%C3%B3n-creativa-desarrollo-de.jpg?s=612x612&w=0&k=20&c=7gJbKYiqy8hFfy8HAvgdjPCZTx0gCdsqppq1mnu_LUA=",
         title: "Diseño Web Creativo y Atractivo",
         description: "Sitios web impactantes y visualmente atractivos.",
     },
@@ -137,3 +141,45 @@ export const itInfoArray = [
         description: "it3 description"
     }
 ];
+
+export const generalServicesInfo = [
+    {
+        id: "b1",
+        image: "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        title: "Tableros",
+        description: "Poderosas visualizaciones interactivas y tableros dinámicos."
+    },
+    {
+        id: "b2",
+        image: "https://media.istockphoto.com/id/1480239219/es/foto/un-analista-utiliza-una-computadora-y-un-panel-de-control-para-el-an%C3%A1lisis-de-negocios-de.jpg?s=612x612&w=0&k=20&c=BYWWoy2RordEovmXC5gWexCm529iXMgPZp6RoAXgpp8=",
+        title: "Recopilación e Integración de Datos",
+        description: "Recopilar y consolidar datos dispersos de múltiples fuentes en una única fuente."
+    },
+    // {
+    //     id: "b3",
+    //     image: "https://media.istockphoto.com/id/1402667894/es/foto/pantalla-de-conferencia-de-energ%C3%ADa.jpg?s=612x612&w=0&k=20&c=if8B0E4TJ1ohnU-yZKGXosQfx2ctOh7JTWllo6VxWkc=",
+    //     title: "Análisis Profundo y Acción Inteligente",
+    //     description: "Análisis descriptivos hasta predictivos y prescriptivos."
+    // },
+    {
+        id: "w1",
+        image: "https://media.istockphoto.com/id/1206638576/es/foto/dise%C3%B1ador-de-sitios-web-dise%C3%B1o-de-aplicaciones-de-planificaci%C3%B3n-creativa-desarrollo-de.jpg?s=612x612&w=0&k=20&c=7gJbKYiqy8hFfy8HAvgdjPCZTx0gCdsqppq1mnu_LUA=",
+        title: "Diseño Web Creativo y Atractivo",
+        description: "Sitios web impactantes y visualmente atractivos.",
+    },
+    {
+        id: "w2",
+        title: "Optimización para Motores de Búsqueda (SEO)",
+        description: "Maximización de la visibilidad de tu sitio web en los motores de búsqueda."
+    },
+    {
+        id: "i1",
+        title: "it1",
+        description: "it1 description"
+    },
+    {
+        id: "i2",
+        title: "it2",
+        description: "it2 description"
+    }
+]
