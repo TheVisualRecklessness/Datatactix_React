@@ -41,7 +41,7 @@ nav {
   align-items: center;
 }
 
-ul {
+#list-navbar {
   margin-left: auto;
   display: flex;
   list-style: none;
