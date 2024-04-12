@@ -131,7 +131,7 @@ const NavBar = () => {
         <header ref={navBarRef}>
             <nav>
                 <Link id="navHome" className="navLink" to="/Datatactix_React/">Datatactix</Link>
-                <ul>
+                <ul id="list-navbar">
                     <li ref={serviceInfo} className="navLink" id="servicios-nav">Servicios</li>
                     <li><Link className="navLink" to="/About">Sobre nosotros</Link></li>
                     <li><Link className="navLink" to="/Contact">Contacto</Link></li>
