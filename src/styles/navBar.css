@@ -45,12 +45,30 @@ nav {
   margin-left: auto;
   display: flex;
   list-style: none;
-  gap: 2vw;
+  gap: 6vw;
   margin-right: 4vw;
 }
 
 #servicios-nav {
   cursor: pointer;
+}
+
+#services-names-navbar {
+  position: absolute;
+  top: 6.5vh;
+  background-color: rgba(255, 255, 255,0.98);
+  border: 1px solid rgba(0, 0, 0, 0.144);
+  border-radius: 0 0 10px 10px;
+  padding: 5px;
+
+  li {
+    list-style: none;
+    cursor: default;
+    margin: 4px 0 0 0;
+  }
+  li:first-child {
+    margin: 0;
+  }
 }
 
 #servicios-nav::selection {

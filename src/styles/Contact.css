@@ -1,5 +1,5 @@
 .contact-form-section {
-    padding-top: 10vh;
+    padding: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +14,7 @@
     height: 80vh;
     background-color: #ffffff;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 
     #contact-message {
         grid-column: 2 / span 5;

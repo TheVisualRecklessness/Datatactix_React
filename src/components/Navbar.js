@@ -1,18 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
-import { biInfoArray, webInfoArray, itInfoArray } from "../data/servicesInformationArray";
-import ArrowHead from "../assets/right_arrow_head.svg";
+import { servicesNames } from "../data/servicesInformationArray";
 
 const NavBar = () => {
     const navBarRef = useRef(null);
     const serviceInfo = useRef(null);
-    const biRef = useRef(null);
-    const webRef = useRef(null);
-    const itRef = useRef(null);
     const location = useLocation();
     const [toggleInfo, setToggleInfo] = useState(false);
-    const [servicesInfo, setServicesInfo] = useState(biInfoArray);
 
     useEffect(() => { //resets classes and state when changing pages
         setToggleInfo(false);
@@ -24,19 +19,6 @@ const NavBar = () => {
             navBarRef.current.classList.remove("nav-background");
         }
     }, [location.pathname, navBarRef]);
-
-    useEffect(() => { //reset info section state when changing pages
-        const  currentBiRef = biRef.current;
-        const currentWebRef = webRef.current;
-        const currentItRef = itRef.current;
-
-        return () => {
-            setServicesInfo(biInfoArray);
-            currentBiRef.classList.add("service-selected-header");
-            currentWebRef.classList.remove("service-selected-header");
-            currentItRef.classList.remove("service-selected-header");
-        };
-    }, [location.pathname]);
 
     useEffect(() => { //changes header class when scrolling home page
         const checkScroll = () => {
@@ -79,55 +61,6 @@ const NavBar = () => {
         };
     }, [navBarRef, serviceInfo, location.pathname, toggleInfo]);
 
-    useEffect(() => { //closes service info section when clicking outside of header
-        const handleClickOutside = (e) => {
-            if(!navBarRef.current.contains(e.target)) {
-                setToggleInfo(false);
-                if(location.pathname === "/Datatactix_React/" && window.scrollY === 0) {
-                    navBarRef.current.classList.remove("nav-background");
-                }
-            }
-        };
-        document.addEventListener("click", handleClickOutside);
-        return () => {
-            document.removeEventListener("click", handleClickOutside);
-        };
-    },[navBarRef, location.pathname]);
-
-    useEffect(() => { //changes info section content when clicking on services
-        const biClick = () => {
-            setServicesInfo(biInfoArray);
-            currentBiRef.classList.add("service-selected-header");
-            currentWebRef.classList.remove("service-selected-header");
-            currentItRef.classList.remove("service-selected-header");
-        };
-        const webClick = () => {
-            setServicesInfo(webInfoArray);
-            currentBiRef.classList.remove("service-selected-header");
-            currentWebRef.classList.add("service-selected-header");
-            currentItRef.classList.remove("service-selected-header");
-        };
-        const itClick = () => {
-            setServicesInfo(itInfoArray);
-            currentBiRef.classList.remove("service-selected-header");
-            currentWebRef.classList.remove("service-selected-header");
-            currentItRef.classList.add("service-selected-header");
-        };
-
-        const currentBiRef = biRef.current;
-        const currentWebRef = webRef.current;
-        const currentItRef = itRef.current;
-        currentBiRef.addEventListener("click", biClick);
-        currentWebRef.addEventListener("click", webClick);
-        currentItRef.addEventListener("click", itClick);
-
-        return () => {
-            currentBiRef.removeEventListener("click", biClick);
-            currentWebRef.removeEventListener("click", webClick);
-            currentItRef.removeEventListener("click", itClick);
-        };
-    },[biRef, webRef, itRef]);
-
     return (
         <header ref={navBarRef}>
             <nav>
@@ -138,53 +71,22 @@ const NavBar = () => {
                     <a id="navHome" className="navLink" href="#banner-section">Datatactix</a>)
                 }
                 <ul id="list-navbar">
-                    <li ref={serviceInfo} className="navLink" id="servicios-nav">Servicios</li>
-                    <li><Link className="navLink" to="/About">Sobre nosotros</Link></li>
-                    <li>
+                    <div id="services-info-navbar">
+                        <li ref={serviceInfo} className="navLink" id="servicios-nav">Servicios</li>
                         {
-                            (location.pathname !== "/Datatactix_React/" &&
-                            <HashLink className="navLink" to="/Datatactix_React/#contact-section">Contacto</HashLink>)
-                            || (location.pathname === "/Datatactix_React/" &&
-                            <a className="navLink" href="#contact-section">Contacto</a>)
+                            toggleInfo && 
+                            <ul id="services-names-navbar">
+                                {servicesNames.map(service => {
+                                    return <li>{service.name}</li>
+                                })}
+                            </ul>
                         }
-                    </li>
+                    </div>
+                    <li><Link className="navLink" to="/About">Sobre nosotros</Link></li>
+                    <li><HashLink className="navLink" to="/Datatactix_React/#contact-section">Contacto</HashLink></li>
                 </ul>
+                
             </nav>
-            <section id="info-section-header" style={{ display: toggleInfo ? "flex" : "none" }}>
-                <article id="info-header">
-                    <div id="options-header">
-                        <Link className="option-link-header" to="/Services">
-                            Conoce nuestros servicios
-                        </Link>
-                    </div>
-                    <div className="vertical-line"></div>
-                    <div id="info-titles-header">
-                        <h3 ref={biRef} className="service-header service-selected-header">
-                            Inteligencia de negocios
-                            <img src={ArrowHead} alt="Right arrow head" />
-                        </h3>
-                        <h3 ref={webRef} className="service-header">
-                            Desarrollo web
-                            <img src={ArrowHead} alt="Right arrow head" />
-                        </h3>
-                        <h3 ref={itRef} className="service-header">
-                            Soluciones IT
-                            <img src={ArrowHead} alt="Right arrow head" />
-                        </h3>
-                    </div>
-                    <div className="vertical-line"></div>
-                    <div id="info-service-header">
-                        {servicesInfo.map(service => {
-                            return (
-                                <div key={service.id} className="service-description-header">
-                                    <h3>{service.title}</h3>
-                                    <p>{service.description}</p>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </article>
-            </section>
         </header>
     );
 }

@@ -186,3 +186,18 @@ export const generalServicesInfo = [
         description: "it2 description"
     }
 ]
+
+export const servicesNames = [
+    {
+        id: 1,
+        name: "Business Intelligence"
+    },
+    {
+        id: 2,
+        name: "Desarrollo Web"
+    },
+    {
+        id: 3,
+        name: "Infraestructura IT"
+    }
+]

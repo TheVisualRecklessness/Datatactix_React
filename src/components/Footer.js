@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import socials from "../data/socials"
 import "../styles/Footer.css"
 
@@ -29,7 +30,7 @@ const Footer = () => {
             <div id="misc-footer">
                 <ul id="links-footer">
                     <li><Link className="footLinks" to="/About">Sobre nosotros</Link></li>
-                    <li><Link className="footLinks" to="/Contact">Contacto</Link></li>
+                    <HashLink className="footLinks" to="/Datatactix_React/#contact-section">Contacto</HashLink>
                 </ul>
                 <p id="copyright-footer" ref={copyright}>Copyright &copy; {year} Datatactix</p>
             </div>
