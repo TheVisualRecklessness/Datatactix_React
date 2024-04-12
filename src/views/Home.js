@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
 import { generalServicesInfo } from "../data/servicesInformationArray";
 import Card from "../components/Card";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer"
 
 const Home = () => {
@@ -44,6 +45,7 @@ const Home = () => {
                         })}
                     </div>
                 </section>
+                <Contact />
                 <Routes>
                     <Route path="/Services" element={<Services />}></Route>
                 </Routes>

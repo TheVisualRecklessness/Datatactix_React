@@ -3,6 +3,10 @@
   padding: 0px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: rgb(245, 245, 245);
   font-family: 'Roboto', sans-serif;

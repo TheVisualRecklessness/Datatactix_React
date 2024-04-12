@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
+import { HashLink } from "react-router-hash-link";
 import { biInfoArray, webInfoArray, itInfoArray } from "../data/servicesInformationArray";
 import ArrowHead from "../assets/right_arrow_head.svg";
 
@@ -130,11 +131,23 @@ const NavBar = () => {
     return (
         <header ref={navBarRef}>
             <nav>
-                <Link id="navHome" className="navLink" to="/Datatactix_React/">Datatactix</Link>
+                {(location.pathname !== "/Datatactix_React/" &&
+                    <Link id="navHome" className="navLink" to="/Datatactix_React/">Datatactix</Link>)
+                    ||
+                    (location.pathname === "/Datatactix_React/" &&
+                    <a id="navHome" className="navLink" href="#banner-section">Datatactix</a>)
+                }
                 <ul id="list-navbar">
                     <li ref={serviceInfo} className="navLink" id="servicios-nav">Servicios</li>
                     <li><Link className="navLink" to="/About">Sobre nosotros</Link></li>
-                    <li><Link className="navLink" to="/Contact">Contacto</Link></li>
+                    <li>
+                        {
+                            (location.pathname !== "/Datatactix_React/" &&
+                            <HashLink className="navLink" to="/Datatactix_React/#contact-section">Contacto</HashLink>)
+                            || (location.pathname === "/Datatactix_React/" &&
+                            <a className="navLink" href="#contact-section">Contacto</a>)
+                        }
+                    </li>
                 </ul>
             </nav>
             <section id="info-section-header" style={{ display: toggleInfo ? "flex" : "none" }}>
