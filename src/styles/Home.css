@@ -65,6 +65,11 @@
     }
 }
 
+#servicios-section {
+    height: fit-content;
+    background-color: rgba(49, 190, 255, 0.507);
+}
+
 @media (1023px < width < 1365px) { /* 1024px a 1364px */
     #que-hacemos-container {
         grid-template-columns: repeat(3, 1fr);
@@ -96,7 +101,7 @@
         grid-template-columns: repeat(6, 1fr);
 
         .card {
-            width: 250px;
+            width: 334px; /* 250px */
         }
     }
 }

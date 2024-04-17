@@ -110,7 +110,7 @@ export const webInfoArray = [
         id: "w1",
         image: "https://media.istockphoto.com/id/1206638576/es/foto/dise%C3%B1ador-de-sitios-web-dise%C3%B1o-de-aplicaciones-de-planificaci%C3%B3n-creativa-desarrollo-de.jpg?s=612x612&w=0&k=20&c=7gJbKYiqy8hFfy8HAvgdjPCZTx0gCdsqppq1mnu_LUA=",
         title: "Diseño Web Creativo y Atractivo",
-        description: "Sitios web impactantes y visualmente atractivos.",
+        description: "Sitios web impactantes y visualmente atractivos."
     },
     {
         id: "w2",

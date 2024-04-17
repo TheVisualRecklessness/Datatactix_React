@@ -43,8 +43,8 @@ h1, h2, h3, h4, h5, h6, p {
   /* box-shadow: 5px 5px 0px 3px rgba(99, 3, 255, 0.5); */
   border-radius: 20px 20px 10px 10px;
   display: grid !important;
-  grid-template-areas: "image" "image" "title" "paragraph";
-  grid-template-rows: 10vh 1fr 0.5fr 1fr;
+  grid-template-areas: "image" "image" "title" "paragraph" "id";
+  grid-template-rows: 10vh 1fr 0.5fr 1fr 0.2fr;
   
   transform: scale(1);
   transition: transform 0.2s ease;
@@ -69,8 +69,49 @@ h1, h2, h3, h4, h5, h6, p {
     object-fit: cover;
     border-radius: 20px 20px 0 0;
   }
+  .card-id {
+    grid-area: id;
+    font-size: 15px;
+  }
 }
 
 .card:hover {
   transform: scale(1.05);
+}
+
+.servicios-acordion-boton {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 2vw;
+  width: 24vw;
+  cursor: pointer;
+  
+  h2 {
+    cursor: pointer;
+  }
+  img {
+    height: 7vh;
+    width: auto;
+    margin: 0 0 0 auto;
+  }
+}
+
+.servicios-acordion-item {
+  padding: 10vh 0 0 0;
+}
+
+.accordion-body {
+  transition: height 0.5s, opacity 0.5s;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.accordion-body.open {
+  height: 60vh;
+}
+
+.accordion-body.closed {
+  height: 0;
 }

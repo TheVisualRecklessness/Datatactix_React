@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
-import { servicesNames } from "../data/servicesInformationArray";
+import { servicesData } from "../data/servicesMap";
 
 const NavBar = () => {
     const navBarRef = useRef(null);
@@ -46,19 +46,13 @@ const NavBar = () => {
                     navBarRef.current.classList.add("nav-background");
                 }
             }
-            if(toggleInfo) {
-                setToggleInfo(false);
-            } else {
-                setToggleInfo(true);
-            }
+            setToggleInfo(toggleInfo ? false : true);
         };
     
         const currentServiceInfo = serviceInfo.current;
         currentServiceInfo.addEventListener("click", handleClick);
     
-        return () => {
-            currentServiceInfo.removeEventListener("click", handleClick);
-        };
+        return () => currentServiceInfo.removeEventListener("click", handleClick);
     }, [navBarRef, serviceInfo, location.pathname, toggleInfo]);
 
     return (
@@ -76,8 +70,8 @@ const NavBar = () => {
                         {
                             toggleInfo && 
                             <ul id="services-names-navbar">
-                                {servicesNames.map(service => {
-                                    return <li>{service.name}</li>
+                                {servicesData.map(service => {
+                                    return <li key={service.id}><HashLink className="navLink" to={"/Datatactix_React/#"+service.target}>{service.name}</HashLink></li>
                                 })}
                             </ul>
                         }
