@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Datatactix_React/static/css/main.ed9bb413.css",
-    "main.js": "/Datatactix_React/static/js/main.d90ca220.js",
+    "main.css": "/Datatactix_React/static/css/main.74294e34.css",
+    "main.js": "/Datatactix_React/static/js/main.adb9d15d.js",
     "static/media/graph-and-people-svgrepo-com.svg": "/Datatactix_React/static/media/graph-and-people-svgrepo-com.01ebcbe60cd24fe247e10f902b1c3bcb.svg",
     "static/media/slick.svg": "/Datatactix_React/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/Datatactix_React/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -10,11 +10,11 @@
     "static/media/right_arrow_svg.svg": "/Datatactix_React/static/media/right_arrow_svg.beda96f5d9d1b2ec1287b967e397f7f3.svg",
     "index.html": "/Datatactix_React/index.html",
     "static/media/right_arrow_head.svg": "/Datatactix_React/static/media/right_arrow_head.7a1b0dd5ea10bbcb37c3e4466f370feb.svg",
-    "main.ed9bb413.css.map": "/Datatactix_React/static/css/main.ed9bb413.css.map",
-    "main.d90ca220.js.map": "/Datatactix_React/static/js/main.d90ca220.js.map"
+    "main.74294e34.css.map": "/Datatactix_React/static/css/main.74294e34.css.map",
+    "main.adb9d15d.js.map": "/Datatactix_React/static/js/main.adb9d15d.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed9bb413.css",
-    "static/js/main.d90ca220.js"
+    "static/css/main.74294e34.css",
+    "static/js/main.adb9d15d.js"
   ]
 }
