@@ -67,7 +67,7 @@
 
 #servicios-section {
     height: fit-content;
-    background-color: rgba(49, 190, 255, 0.507);
+    /* background-color: rgba(49, 190, 255, 0.507); */
 }
 
 @media (1023px < width < 1365px) { /* 1024px a 1364px */

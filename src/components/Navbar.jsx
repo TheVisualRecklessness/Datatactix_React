@@ -55,6 +55,16 @@ const NavBar = () => {
         return () => currentServiceInfo.removeEventListener("click", handleClick);
     }, [navBarRef, serviceInfo, location.pathname, toggleInfo]);
 
+    const offsetScroll = (e) => {
+        if(location.pathname === "/Datatactix_React/"){
+            e.preventDefault();
+            const id = e.target.href.split("#")[1];
+            const element = document.getElementById(id);
+            const offset = element.offsetTop - (window.innerHeight * 0.1);
+            window.scrollTo(0, offset);
+        }
+    };
+
     return (
         <header ref={navBarRef}>
             <nav>
@@ -71,7 +81,7 @@ const NavBar = () => {
                             toggleInfo && 
                             <ul id="services-names-navbar">
                                 {servicesData.map(service => {
-                                    return <li key={service.id}><HashLink className="navLink" to={"/Datatactix_React/#"+service.target}>{service.name}</HashLink></li>
+                                    return <li key={service.id}><HashLink className="navLink" to={"/Datatactix_React/#"+service.target} onClick={offsetScroll}>{service.name}</HashLink></li>
                                 })}
                             </ul>
                         }
