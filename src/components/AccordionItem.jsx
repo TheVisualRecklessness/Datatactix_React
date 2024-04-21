@@ -21,8 +21,7 @@ const AccordionBody = ({ isOpen, steps }) => {
 };
 
 const AccordionItem = ({ data }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+  const [ isOpen, setIsOpen ] = useState(true);
   const handleClick = () => {
     setIsOpen(prevIsOpen => !prevIsOpen);
   };

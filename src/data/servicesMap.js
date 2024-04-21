@@ -22,7 +22,7 @@ export const servicesData = [
                 stepDescription: "Poderosas visualizaciones interactivas y tableros dinámicos."
             }
         ],
-        target: "bi-home-article"
+        target: "bi-home-article",
     },
     {
         id: 2,
@@ -47,7 +47,7 @@ export const servicesData = [
                 stepDescription: "Integración de tus perfiles de redes sociales y estrategias de marketing digital."
             }
         ],
-        target: "web-home-article"
+        target: "web-home-article",
     },
     {
         id: 3,
@@ -69,6 +69,6 @@ export const servicesData = [
                 stepDescription: "Descripcion 3 IT"
             }
         ],
-        target: "it-home-article"
+        target: "it-home-article",
     }
 ];

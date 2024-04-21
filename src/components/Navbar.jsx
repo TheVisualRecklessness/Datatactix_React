@@ -9,6 +9,7 @@ const NavBar = () => {
     const location = useLocation();
     const [toggleInfo, setToggleInfo] = useState(false);
 
+
     useEffect(() => { //resets classes and state when changing pages
         setToggleInfo(false);
         window.scrollTo(0, 0);
@@ -55,13 +56,30 @@ const NavBar = () => {
         return () => currentServiceInfo.removeEventListener("click", handleClick);
     }, [navBarRef, serviceInfo, location.pathname, toggleInfo]);
 
-    const offsetScroll = (e) => {
-        if(location.pathname === "/Datatactix_React/"){
+    useEffect(() => {
+        if(location.pathname === "/Datatactix_React/" && toggleInfo) {
+            const offsetScroll = (e) => {
+                const id = e.target.href.split("#")[1];
+                const element = document.getElementById(id);
+                const offset = element.offsetTop - (window.innerHeight * 0.1);
+                window.scrollTo(0, offset);
+            };
+            const navLinks = document.querySelectorAll(".servicios-nav-links");
+            navLinks.forEach(link => {
+                link.addEventListener("click", offsetScroll);
+            });
+
+            return () => {
+                navLinks.forEach(link => {
+                    link.removeEventListener("click", offsetScroll);
+                });
+            };
+        }
+    },[location.pathname, toggleInfo]);
+
+    const preventHashLink = (e) => {
+        if(location.pathname === "/Datatactix_React/") {
             e.preventDefault();
-            const id = e.target.href.split("#")[1];
-            const element = document.getElementById(id);
-            const offset = element.offsetTop - (window.innerHeight * 0.1);
-            window.scrollTo(0, offset);
         }
     };
 
@@ -81,7 +99,7 @@ const NavBar = () => {
                             toggleInfo && 
                             <ul id="services-names-navbar">
                                 {servicesData.map(service => {
-                                    return <li key={service.id}><HashLink className="navLink" to={"/Datatactix_React/#"+service.target} onClick={offsetScroll}>{service.name}</HashLink></li>
+                                    return <li key={service.id}><HashLink className="navLink servicios-nav-links" to={"/Datatactix_React/#"+service.target} onClick={preventHashLink}>{service.name}</HashLink></li>
                                 })}
                             </ul>
                         }

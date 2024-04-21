@@ -3,9 +3,7 @@ import Logo from "../assets/graph-and-people-svgrepo-com.svg";
 import Services from "./Services";
 import { Routes, Route } from "react-router-dom";
 import ActionButton from "../components/ActionButton";
-// import { generalServicesInfo } from "../data/servicesInformationArray";
 import { servicesData } from "../data/servicesMap";
-// import Card from "../components/Card";
 import AccordionItem from '../components/AccordionItem';
 import Contact from "../components/Contact";
 import Footer from "../components/Footer"
@@ -32,25 +30,13 @@ const Home = () => {
                         ></img>
                     </article>
                 </section>
-                {/* <section id="que-hacemos-section">
-                    <h2 className="section-title">
-                        ¿Cómo te ayuda Datatactix?
-                    </h2>
-                    <div id="que-hacemos-container">
-                        {generalServicesInfo.map(info => {
-                            return <Card
-                                key={info.id}
-                                image={info.image}
-                                title={info.title}
-                                description={info.description}
-                            />
-                        })}
-                    </div>
-                </section> */}
                 <section id="servicios-section">
                     <div id="servicios-acordion">
                         {servicesData.map(data => {
-                            return <AccordionItem key={data.id} data={data}/>
+                            return <AccordionItem 
+                                key={data.id} 
+                                data={data}
+                            />
                         })}
                     </div>
                 </section>
