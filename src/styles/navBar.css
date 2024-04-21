@@ -24,7 +24,7 @@ header {
   .navLink {
     text-decoration: none;
     color: black;
-    font-size: 16px;
+    font-size: clamp(14px, 8.33vw, 18px); /* 16px at 1920 */
     text-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
   }
 }

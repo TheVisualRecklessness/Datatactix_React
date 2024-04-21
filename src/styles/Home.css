@@ -15,16 +15,16 @@
     flex-flow: column;
     justify-content: center;
     gap: 2vh;
+
     h1 {
-    font-size: 2.2vw;
+        font-size: clamp(35px, 2.2vw, 42.24px); /* 42.24px at 1920 */
     }
     p {
-        font-size: 1.1vw;
+        font-size: clamp(18px, 1.1vw, 21.12px); /* 21.12px at 1920 */
     }
 }
 
-.staticColorNav,
-.banner-text {
+.staticColorNav, .banner-text {
     animation: changeColor 15s infinite;
 }
 
@@ -40,73 +40,38 @@
     width: auto;
 }
 
-#que-hacemos-section {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1vh 0 3vh 0;
-}
-
-.section-title {
-    text-align: center;
-    align-self: center;
-    font-size: 2rem;
-}
-
-#que-hacemos-container {
-    display: grid;
-    width: 85vw;
-    margin: 2vh 0 0 0;
-    gap: 40px;
-
-    .card {
-        justify-self: center;
-    }
-}
-
 #servicios-section {
     height: fit-content;
-    /* background-color: rgba(49, 190, 255, 0.507); */
+    background-color: rgba(146, 253, 221, 0.507);
 }
 
-@media (1023px < width < 1365px) { /* 1024px a 1364px */
-    #que-hacemos-container {
-        grid-template-columns: repeat(3, 1fr);
+#servicios-acordion .accordion-body {
+    transition: height 0.5s, opacity 0.5s;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
-        .card {
-            width: 250px;
-        }
+#servicios-acordion .acordion-boton {
+    width: clamp(350px, 24vw, 360px );
+    img {
+        height: clamp(50px, 6.94vh, 70px);
     }
 }
 
-@media (1364px < width < 1441px) { /* 1365px a 1440px */
-    #que-hacemos-container {
-        grid-template-columns: repeat(3, 1fr);        
-    }
+#servicios-acordion .card {
+    width: clamp(320px, 26.041vw, 500px);
+    height: clamp(400px, 45vh, 500px); 
 }
 
-@media (1440px < width < 1920px) { /* 1441px a 1919px */
-    #que-hacemos-container {
-        grid-template-columns: repeat(3, 1fr);
-
-        .card {
-            width: 334px;
-        }
-    }
+.accordion-body.open {
+    height: 80vh;
 }
 
-@media (min-width: 1920px) {
-    #que-hacemos-container {
-        grid-template-columns: repeat(6, 1fr);
-
-        .card {
-            width: 334px; /* 250px */
-        }
-    }
+.accordion-body.closed {
+    height: 0;
 }
-
-
 
 @keyframes gradient {
     0% {

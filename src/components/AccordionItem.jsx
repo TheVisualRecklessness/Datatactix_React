@@ -27,8 +27,8 @@ const AccordionItem = ({ data }) => {
   };
 
   return (
-    <article id={data.target} className="servicios-acordion-item">
-      <div className="servicios-acordion-boton" onClick={handleClick}>
+    <article id={data.target} className="acordion-item">
+      <div className="acordion-boton" onClick={handleClick}>
         <h2>{data.name}</h2>
         <img src={Arrow} alt="right arrow" />
       </div>

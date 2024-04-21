@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6, p {
   transform: scale(1.05);
 }
 
-.servicios-acordion-boton {
+.acordion-boton {
   display: flex;
   align-items: center;
   padding: 0 0 0 2vw;
@@ -93,24 +93,4 @@ h1, h2, h3, h4, h5, h6, p {
     width: auto;
     margin: 0 0 0 auto;
   }
-}
-
-.servicios-acordion-item {
-  background-color: rgba(127, 255, 212, 0.616);
-}
-
-.accordion-body {
-  transition: height 0.5s, opacity 0.5s;
-  overflow: hidden;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.accordion-body.open {
-  height: 80vh;
-}
-
-.accordion-body.closed {
-  height: 0;
 }
