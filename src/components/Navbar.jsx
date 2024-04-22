@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import { servicesData } from "../data/servicesMap";
-import right_arrow_head from "../assets/right_arrow_head.svg";
+// import right_arrow_head from "../assets/right_arrow_head.svg";
 
 const NavBar = () => {
     const navBarRef = useRef(null); //references navbar
@@ -13,8 +13,7 @@ const NavBar = () => {
     const location = useLocation();
     const [toggleInfo, setToggleInfo] = useState(false);
     const [toggleBurger, setToggleBurger] = useState(false);
-    const [toggleServicesMenu, setToggleServicesMenu] = useState(false);
-
+    // const [toggleServicesMenu, setToggleServicesMenu] = useState(false);
 
     useEffect(() => { //resets classes and state when changing pages
         setToggleInfo(false);
@@ -112,18 +111,18 @@ const NavBar = () => {
         }
     },[toggleBurger, location.pathname, navBarRef]);
 
-    useEffect(() => { // show services mobile list menu
-        if (toggleBurger) {
-            const currentServicesMenu = servicesMenu.current;
-            const toggleServices = () => {
-                setToggleServicesMenu(prevToggleServicesMenu => !prevToggleServicesMenu);
-            };
+    // useEffect(() => { // show services mobile list menu
+    //     if (toggleBurger) {
+    //         const currentServicesMenu = servicesMenu.current;
+    //         const toggleServices = () => {
+    //             setToggleServicesMenu(prevToggleServicesMenu => !prevToggleServicesMenu);
+    //         };
 
-            currentServicesMenu.addEventListener("click", toggleServices);
+    //         currentServicesMenu.addEventListener("click", toggleServices);
 
-            return () => currentServicesMenu.removeEventListener("click", toggleServices);
-        }
-    },[toggleBurger]);
+    //         return () => currentServicesMenu.removeEventListener("click", toggleServices);
+    //     }
+    // },[toggleBurger]);
 
     useEffect(() => { // scroll to element from services links mobile
         if(location.pathname === "/Datatactix_React/" && toggleBurger) {
@@ -145,7 +144,7 @@ const NavBar = () => {
                 });
             }
         }
-    },[location.pathname, toggleInfo, toggleBurger, toggleServicesMenu]);
+    },[location.pathname, toggleInfo, toggleBurger]); //toggleServicesMenu
 
     return (
         <header ref={navBarRef}>
@@ -169,10 +168,10 @@ const NavBar = () => {
                             <li className="menu-list">
                                 <div ref={servicesMenu} id="services-menu-nav">
                                     <p>Servicios</p>
-                                    <img src={right_arrow_head} alt="right arrow head"></img>
+                                    {/* <img src={right_arrow_head} alt="right arrow head"></img> */}
                                 </div>
                                 {
-                                    toggleServicesMenu &&
+                                    true && //toggleServicesMenu
                                     <ul id="services-names-navbar-mobile">
                                         {servicesData.map(service => {
                                             return <li key={service.id}><HashLink className="services-menu-links" to={"/Datatactix_React/#"+service.target} onClick={preventHashLink}>{service.name}</HashLink></li>
