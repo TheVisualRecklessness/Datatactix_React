@@ -1,4 +1,5 @@
 footer {
+    padding: 0 4vw 0 0;
     height: 50vh;
     display: grid;
     grid-template-areas: 
@@ -11,19 +12,19 @@ footer {
     #info-footer {
         grid-area: info;
         display: flex;
-        gap: 400px;
+        gap: 20.83vw;
         align-items: center;
 
         #name-footer {
             color: rgb(8, 13, 80);
-            font-size: 60px;
+            font-size: clamp(30px, 3.75vw, 60px);
         }
         #socials-footer {
             grid-area: socials;
             height: 35px;
             justify-self: flex-end;
             display: flex;
-            gap: 15px;
+            gap: 0.781vw;
             
             .social-icon {
                 height: 35px;
