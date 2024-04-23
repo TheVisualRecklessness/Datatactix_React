@@ -174,87 +174,85 @@ nav {
 
 /* A PARTIR DE AQUI EMPIEZA VISTA PARA TELEFONOS */
 
-@supports (-webkit-touch-callout: none) { /* apple */
+/* @supports (-webkit-touch-callout: none) {
   #mobile-menu-navbar {
-    height: 40vh;
+    height: 40lvh;
   }
 }
 
-@supports not (-webkit-touch-callout: none) { /* not apple */
+@supports not (-webkit-touch-callout: none) {
   #mobile-menu-navbar {
     height: fit-content;
   }
-}
+} */
 
 @media only screen and (min-width: 320px) and (max-width: 768px){
+  nav {
+    height: 10lvh;
+  }
   #list-navbar {
     display: none;
   }
   #burger-menu-navbar {
     display: block;
-    margin: 0 4vw 0 auto;
-    font-size: 30px;
+    margin: 0 4lvw 0 auto;
+    font-size: clamp(25px, 10lvw, 50px);
     color: white;
   }
   #mobile-menu-navbar {
-    width: 92vw;
+    width: 92lvw;
+    height: 38lvh;
     background-color: rgba(255, 255, 255,0.98);
     position: absolute;
-    top: 10vh;
+    top: 10lvh;
     border-top: 1px solid rgba(0, 0, 0, 0.144);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.486);
-    padding: 2vh 4vw;
+    padding: 2lvh 4lvw;
     animation: menu;
     animation-duration: 0.3s;
     animation-timing-function: ease;
   }
   .menu-list {
     list-style: none;
-  }
-  
+  } 
   .menu-list a {
     color: black;
       text-decoration: none;
       font-size: 20px;
   }
-  
   #mobile-list-navbar {
     display: flex;
     flex-flow: column;
     height: 100%;
-    gap: 4vh;
+    gap: 4lvh;
     justify-content: center;
   }
-  
   #services-menu-nav {
     display: flex;
     align-items: center;
-  
-    p {
-      font-size: 20px;
-    }
-    img {
-      height: 30px;
-      width: auto;
-    }
   }
-  
+  #services-menu-nav p {
+    font-size: 20px;
+  }
+  #services-map-nav img {
+    height: 30px;
+    width: auto;
+  }
   #services-menu-list li {
       list-style: none;
       cursor: pointer;
-      padding: 1vh 0;
+      padding: 1lvh 0;
   }
-  
   #services-names-navbar-mobile li {
     list-style: none;
     cursor: pointer;
-    margin: 3vh 0 0 0;
-    padding: 0 0 0 6vw;
+    margin: 3lvh 0 0 0;
+    padding: 0 0 0 6lvw;
   }
   
   @keyframes menu {
     0% {
-      right: -100vw;
+      right: -100lvw;
     }
     100% {
       right: 0;
