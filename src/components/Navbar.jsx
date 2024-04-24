@@ -146,6 +146,22 @@ const NavBar = () => {
         }
     },[location.pathname, toggleInfo, toggleBurger]); //toggleServicesMenu
 
+    useEffect(() => { // close mobile menu when clicking outside
+        const closeMobileMenu = (e) => {
+            if(toggleBurger && (e.target.id !== "burger-menu-navbar" && e.target.id !== "mobile-menu-navbar"
+                && e.target.id !== "mobile-list-navbar" && e.target.id !== "services-names-navbar-mobile"
+                && e.target.id !== "services-menu-nav" )) {
+                setToggleBurger(false);
+            }
+        };
+
+        window.addEventListener("click", closeMobileMenu);
+
+        return () => {
+            window.removeEventListener("click", closeMobileMenu);
+        };
+    },[toggleBurger]);
+
     return (
         <header ref={navBarRef}>
             <nav>
@@ -174,13 +190,13 @@ const NavBar = () => {
                                     true && //toggleServicesMenu
                                     <ul id="services-names-navbar-mobile">
                                         {servicesData.map(service => {
-                                            return <li key={service.id}><HashLink className="services-menu-links" to={"/Datatactix_React/#"+service.target} onClick={preventHashLink}>{service.name}</HashLink></li>
+                                            return <li key={service.id}><HashLink className="services-menu-links mobile-nav-link" to={"/Datatactix_React/#"+service.target} onClick={preventHashLink}>{service.name}</HashLink></li>
                                         })}
                                     </ul>
                                 }
                             </li>
-                            <li className="menu-list"><Link to="/About">Sobre nosotros</Link></li>
-                            <li className="menu-list"><HashLink to="/Datatactix_React/#contact-section">Contacto</HashLink></li>
+                            <li className="menu-list"><Link className="mobile-nav-link" to="/About">Sobre nosotros</Link></li>
+                            <li className="menu-list"><HashLink className="mobile-nav-link" to="/Datatactix_React/#contact-section">Contacto</HashLink></li>
                         </ul>
                     </div>
                 }
