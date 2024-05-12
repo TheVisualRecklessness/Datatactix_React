@@ -2,9 +2,11 @@ import { Link, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import { servicesData } from "../data/servicesMap";
-// import right_arrow_head from "../assets/right_arrow_head.svg";
+import AccordionContext from "../data/accordionContext";
+import { useContext } from "react";
 
 const NavBar = () => {
+    const { setBi, setWeb, setIt } = useContext(AccordionContext);
     const navBarRef = useRef(null); //references navbar
     const serviceInfo = useRef(null); //references services info in navbar
     const burgerRef = useRef(null); //references burger menu
@@ -13,12 +15,11 @@ const NavBar = () => {
     const location = useLocation();
     const [toggleInfo, setToggleInfo] = useState(false);
     const [toggleBurger, setToggleBurger] = useState(false);
-    // const [toggleServicesMenu, setToggleServicesMenu] = useState(false);
 
     useEffect(() => { //resets classes and state when changing pages
         setToggleInfo(false);
         window.scrollTo(0, 0);
-        if (location.pathname !== "/Datatactix_React/") { //if page is not home
+        if (location.pathname !== "/") { //if page is not home
             navBarRef.current.classList.add("nav-background");
             navBarRef.current.classList.remove("test");
         } else { //if page is home
@@ -28,14 +29,14 @@ const NavBar = () => {
 
     useEffect(() => { //changes header class when scrolling home page
         const checkScroll = () => {
-            if(location.pathname === "/Datatactix_React/") {
+            if(location.pathname === "/") {
                 if(window.scrollY === 0 && (!toggleInfo && !toggleBurger)) {
                     navBarRef.current.classList.remove("nav-background");
                 } else if (window.scrollY > 0 && (!toggleInfo && !toggleBurger)){
                     navBarRef.current.classList.add("nav-background");
                     navBarRef.current.classList.add("nav-transition-in");
                 }
-            } else if(location.pathname !== "/Datatactix_React/") {
+            } else if(location.pathname !== "/") {
                 navBarRef.current.classList.add("nav-background");
             }
         };
@@ -47,30 +48,30 @@ const NavBar = () => {
     }, [navBarRef, location.pathname, toggleInfo, toggleBurger]);
 
     useEffect(() => { //toggles info section when clicking on services
-        const handleClick = () => {
-            if(location.pathname === "/Datatactix_React/" && window.scrollY === 0) {
-                if(navBarRef.current.classList.contains("nav-background")) {
-                    navBarRef.current.classList.remove("nav-background");
-                } else {
-                    navBarRef.current.classList.add("nav-background");
-                }
-            }
-            setToggleInfo(toggleInfo ? false : true);
-        };
+        const handleClick = () => setToggleInfo(prevToggleInfo => !prevToggleInfo);
     
         const currentServiceInfo = serviceInfo.current;
         currentServiceInfo.addEventListener("click", handleClick);
     
         return () => currentServiceInfo.removeEventListener("click", handleClick);
-    }, [navBarRef, serviceInfo, location.pathname, toggleInfo]);
+    }, [toggleInfo]);
 
     useEffect(() => { // show services list
-        if(location.pathname === "/Datatactix_React/" && toggleInfo) {
+        if(location.pathname === "/" && toggleInfo) {
             const offsetScroll = (e) => {
                 const id = e.target.href.split("#")[1];
                 const element = document.getElementById(id);
                 const offset = element.offsetTop - (window.innerHeight * 0.1);
                 window.scrollTo(0, offset);
+                if(id === "bi-home-article") {
+                    setBi(true);
+                }
+                else if(id === "web-home-article") {
+                    setWeb(true);
+                }
+                else if(id === "it-home-article") {
+                    setIt(true);
+                }
             };
             const navLinks = document.querySelectorAll(".servicios-nav-links");
             navLinks.forEach(link => {
@@ -83,10 +84,24 @@ const NavBar = () => {
                 });
             };
         }
-    },[location.pathname, toggleInfo]);
+    },[location.pathname, toggleInfo, setBi, setWeb, setIt]);
+
+    useEffect(() => { // disable toggleInfo when clicking outside
+        const closeServicesInfo = (e) => {
+            if(toggleInfo && e.target.id !== "servicios-nav") {
+                setToggleInfo(false);
+            }
+        };
+
+        window.addEventListener("click", closeServicesInfo);
+
+        return () => {
+            window.removeEventListener("click", closeServicesInfo);
+        };
+    },[toggleInfo]);
 
     const preventHashLink = (e) => {
-        if(location.pathname === "/Datatactix_React/") {
+        if(location.pathname === "/") {
             e.preventDefault();
         }
     };
@@ -104,33 +119,31 @@ const NavBar = () => {
 
     useEffect(() => { // add background to mobile navbar if toggleBurger is true
         const currentNavbar = navBarRef.current;
-        if(toggleBurger) {
+        if(toggleBurger || toggleInfo) {
             currentNavbar.classList.add("nav-background");
-        } else if(!toggleBurger && window.scrollY === 0 && location.pathname === "/Datatactix_React/") {
+        } else if(!toggleBurger && !toggleInfo && window.scrollY === 0 && location.pathname === "/") {
             currentNavbar.classList.remove("nav-background");
         }
-    },[toggleBurger, location.pathname, navBarRef]);
-
-    // useEffect(() => { // show services mobile list menu
-    //     if (toggleBurger) {
-    //         const currentServicesMenu = servicesMenu.current;
-    //         const toggleServices = () => {
-    //             setToggleServicesMenu(prevToggleServicesMenu => !prevToggleServicesMenu);
-    //         };
-
-    //         currentServicesMenu.addEventListener("click", toggleServices);
-
-    //         return () => currentServicesMenu.removeEventListener("click", toggleServices);
-    //     }
-    // },[toggleBurger]);
+    },[toggleInfo, toggleBurger, location.pathname, navBarRef]);
 
     useEffect(() => { // scroll to element from services links mobile
-        if(location.pathname === "/Datatactix_React/" && toggleBurger) {
+        if(location.pathname === "/" && toggleBurger) {
             const offsetScroll = (e) => {
                 const id = e.target.href.split("#")[1];
                 const element = document.getElementById(id);
                 const offset = element.offsetTop - (window.innerHeight * 0.1);
                 window.scrollTo(0, offset);
+                if(id === "bi-home-article") {
+                    setBi(true);
+                    console.log(id);
+                    console.log(id === "bi-home-article")
+                }
+                else if(id === "web-home-article") {
+                    setWeb(true);
+                }
+                else if(id === "it-home-article") {
+                    setIt(true);
+                }
             };
 
             const mobileNavLinks = document.querySelectorAll(".services-menu-links");
@@ -144,13 +157,14 @@ const NavBar = () => {
                 });
             }
         }
-    },[location.pathname, toggleInfo, toggleBurger]); //toggleServicesMenu
+    },[location.pathname, toggleInfo, toggleBurger, setIt, setWeb, setBi]); //toggleServicesMenu
 
     useEffect(() => { // close mobile menu when clicking outside
         const closeMobileMenu = (e) => {
             if(toggleBurger && (e.target.id !== "burger-menu-navbar" && e.target.id !== "mobile-menu-navbar"
                 && e.target.id !== "mobile-list-navbar" && e.target.id !== "services-names-navbar-mobile"
-                && e.target.id !== "services-menu-nav" )) {
+                && e.target.id !== "services-menu-nav" && e.target.id !== "mobile-services-menu-list"
+                && e.target.id !== "services-paragraph-nav")) {
                 setToggleBurger(false);
             }
         };
@@ -167,12 +181,12 @@ const NavBar = () => {
             <nav>
                 {
                     (
-                        location.pathname !== "/Datatactix_React/" &&
-                        <Link id="navHome" className="navLink" to="/Datatactix_React/">Datatactix</Link>
+                        location.pathname !== "/" &&
+                        <Link id="navHome" className="navLink" to="/">Datatactix</Link>
                     )
                     ||
                     (
-                        location.pathname === "/Datatactix_React/" &&
+                        location.pathname === "/" &&
                         <a id="navHome" className="navLink" href="#banner-section">Datatactix</a>
                     )
                 }
@@ -181,22 +195,18 @@ const NavBar = () => {
                     toggleBurger &&
                     <div id="mobile-menu-navbar" ref={mobileMenuRef}>
                         <ul id="mobile-list-navbar">
-                            <li className="menu-list">
+                            <li id="mobile-services-menu-list" className="menu-list">
                                 <div ref={servicesMenu} id="services-menu-nav">
-                                    <p>Servicios</p>
-                                    {/* <img src={right_arrow_head} alt="right arrow head"></img> */}
+                                    <p id="services-paragraph-nav">Servicios</p>
                                 </div>
-                                {
-                                    true && //toggleServicesMenu
-                                    <ul id="services-names-navbar-mobile">
-                                        {servicesData.map(service => {
-                                            return <li key={service.id}><HashLink className="services-menu-links mobile-nav-link" to={"/Datatactix_React/#"+service.target} onClick={preventHashLink}>{service.name}</HashLink></li>
-                                        })}
-                                    </ul>
-                                }
+                                <ul id="services-names-navbar-mobile">
+                                    {servicesData.map(service => {
+                                        return <li key={service.id}><HashLink className="navLink services-menu-links" to={"/#"+service.target} onClick={preventHashLink}>{service.name}</HashLink></li>
+                                    })}
+                                </ul>
                             </li>
                             <li className="menu-list"><Link className="mobile-nav-link" to="/About">Sobre nosotros</Link></li>
-                            <li className="menu-list"><HashLink className="mobile-nav-link" to="/Datatactix_React/#contact-section">Contacto</HashLink></li>
+                            <li className="menu-list"><HashLink className="mobile-nav-link" to="/#contact-section">Contacto</HashLink></li>
                         </ul>
                     </div>
                 }
@@ -207,13 +217,13 @@ const NavBar = () => {
                             toggleInfo && 
                             <ul id="services-names-navbar">
                                 {servicesData.map(service => {
-                                    return <li key={service.id}><HashLink className="navLink servicios-nav-links" to={"/Datatactix_React/#"+service.target} onClick={preventHashLink}>{service.name}</HashLink></li>
+                                    return <li key={service.id}><HashLink className="navLink servicios-nav-links" to={"/#"+service.target} onClick={preventHashLink}>{service.name}</HashLink></li>
                                 })}
                             </ul>
                         }
                     </div>
                     <li><Link className="navLink" to="/About">Sobre nosotros</Link></li>
-                    <li><HashLink className="navLink" to="/Datatactix_React/#contact-section">Contacto</HashLink></li>
+                    <li><HashLink className="navLink" to="/#contact-section">Contacto</HashLink></li>
                 </ul>
             </nav>
         </header>

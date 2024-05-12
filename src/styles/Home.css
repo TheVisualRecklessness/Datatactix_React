@@ -41,7 +41,7 @@
 
 #servicios-section {
     height: fit-content;
-    background-color: rgba(146, 253, 221, 0.507);
+    background-color: rgba(235, 235, 235, 0.849);
 }
 
 #servicios-acordion .accordion-body {
@@ -62,7 +62,7 @@
     height: clamp(400px, 45vh, 500px); 
 }
 .accordion-body.open {
-    height: 80vh;
+    height: 500px;
 }
 .accordion-body.closed {
     height: 0;
@@ -72,8 +72,8 @@
     #banner-section {
         display: flex;
         flex-flow: column;
-        height: 90lvh;
-        padding: 10lvh 5lvw 0 5lvw;
+        height: 720px;
+        padding: 70px 5lvw 0 5lvw;
         background: linear-gradient(45deg, #8810d2 26%, #1c00ff 49%, #1fc9d4 74%);
         animation: gradient 15s ease infinite;
         background-size: 500% 500%;

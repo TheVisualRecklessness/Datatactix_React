@@ -2,7 +2,6 @@ import '../styles/Home.css';
 import Logo from "../assets/graph-and-people-svgrepo-com.svg";
 import Services from "./Services";
 import { Routes, Route } from "react-router-dom";
-// import ActionButton from "../components/ActionButton";
 import { servicesData } from "../data/servicesMap";
 import AccordionItem from '../components/AccordionItem';
 import Contact from "../components/Contact";
