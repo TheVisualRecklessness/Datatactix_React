@@ -22,10 +22,20 @@ const AccordionBody = ({ isOpen, steps }) => {
 };
 
 const AccordionItem = ({ data }) => {
-  const { bi, web, it } = useContext(accordionContext);
+  const { setBi, bi, setWeb, web, setIt, it } = useContext(accordionContext);
   const [isOpen, setIsOpen] = useState(false);
   const accordionArrow = useRef(null);
   const buttonRef = useRef(null);
+
+  useEffect (() => {
+    if(data.target === "bi-home-article") {
+      setIsOpen(bi);
+    } else if(data.target === "web-home-article") {
+      setIsOpen(web);
+    } else if(data.target === "it-home-article") {
+      setIsOpen(it);
+    }
+  }, [bi, web, it, data.target]);
 
   useEffect(() => {
     const handleClick = () => {
@@ -39,15 +49,15 @@ const AccordionItem = ({ data }) => {
     };
   },[isOpen]);
 
-  useEffect (() => {
+  useEffect(() => {
     if(data.target === "bi-home-article") {
-      setIsOpen(bi);
+      setBi(isOpen);
     } else if(data.target === "web-home-article") {
-      setIsOpen(web);
+      setWeb(isOpen);
     } else if(data.target === "it-home-article") {
-      setIsOpen(it);
+      setIt(isOpen);
     }
-  }, [bi, web, it, data.target]);
+  }, [isOpen, setBi, setWeb, setIt, data.target]);
 
   useEffect(() => {
     const arrow = accordionArrow.current;

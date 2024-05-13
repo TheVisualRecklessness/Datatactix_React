@@ -86,6 +86,27 @@ const NavBar = () => {
         }
     },[location.pathname, toggleInfo, setBi, setWeb, setIt]);
 
+    useEffect(() => { 
+        const offsetScroll = (e) => {
+            e.preventDefault();
+            const id = e.target.href.split("#")[1];
+            const element = document.getElementById(id);
+            const offset = element.offsetTop - (window.innerHeight * 0.1);
+            window.scrollTo(0, offset);
+        };
+
+        const contact = document.querySelectorAll(".contact-link");
+        contact.forEach(link => {
+            link.addEventListener("click", offsetScroll);
+        });
+
+        return () => {
+            contact.forEach(link => {
+                link.removeEventListener("click", offsetScroll);
+            });
+        };
+    },[]);
+
     useEffect(() => { // disable toggleInfo when clicking outside
         const closeServicesInfo = (e) => {
             if(toggleInfo && e.target.id !== "servicios-nav") {
@@ -205,8 +226,7 @@ const NavBar = () => {
                                     })}
                                 </ul>
                             </li>
-                            <li className="menu-list"><Link className="mobile-nav-link" to="/About">Sobre nosotros</Link></li>
-                            <li className="menu-list"><HashLink className="mobile-nav-link" to="/#contact-section">Contacto</HashLink></li>
+                            <li className="menu-list"><HashLink className="mobile-nav-link contact-link" to="/#contact-section">Contacto</HashLink></li>
                         </ul>
                     </div>
                 }
@@ -222,8 +242,7 @@ const NavBar = () => {
                             </ul>
                         }
                     </div>
-                    <li><Link className="navLink" to="/About">Sobre nosotros</Link></li>
-                    <li><HashLink className="navLink" to="/#contact-section">Contacto</HashLink></li>
+                    <li><HashLink className="navLink contact-link" to="/#contact-section">Contacto</HashLink></li>
                 </ul>
             </nav>
         </header>

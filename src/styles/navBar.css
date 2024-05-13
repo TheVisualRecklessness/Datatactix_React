@@ -201,39 +201,40 @@ nav {
   }
   #mobile-menu-navbar {
     width: 92lvw;
-    height: fit-content;
+    height: 285px;
     background-color: rgba(255, 255, 255,0.98);
     position: absolute;
     top: 69px;
     border-top: 1px solid rgba(0, 0, 0, 0.144);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.486);
-    padding: 2lvh 4lvw;
+    padding: 0 4lvw;
     animation: menu;
     animation-duration: 0.3s;
     animation-timing-function: ease;
   }
+
   .menu-list {
     list-style: none;
   } 
   .menu-list a {
+    display: block;
     color: black;
-      text-decoration: none;
-      font-size: 20px;
-      width: 100%;
+    text-decoration: none;
+    width: 100%;
   }
   #mobile-list-navbar {
     display: flex;
     flex-flow: column;
+    flex-wrap: wrap;
     height: 100%;
-    gap: 4lvh;
-    justify-content: center;
+    justify-content: space-evenly;
   }
   #services-menu-nav {
     display: flex;
     align-items: center;
   }
-  #services-menu-nav p {
-    font-size: 20px;
+  #services-menu-nav p, .mobile-nav-link {
+    font-size: clamp(20px, 5.555dvw, 23px);
   }
   #services-map-nav img {
     height: 30px;
@@ -249,11 +250,6 @@ nav {
     cursor: pointer;
     margin: 3lvh 0 0 0;
     padding: 0 0 0 6lvw;
-  }
-
-  .mobile-nav-link {
-    display: block;
-    width: 100%;
   }
   
   @keyframes menu {

@@ -5,58 +5,73 @@ footer {
     grid-template-areas: 
         "blank info"
         "blank misc";
-
     grid-template-columns: 1fr 9fr;
     grid-template-rows: 1fr 6fr;
+}
 
-    #info-footer {
-        grid-area: info;
-        display: flex;
-        gap: 20.83vw;
-        align-items: center;
+#info-footer {
+    grid-area: info;
+    display: flex;
+    gap: 20.83vw;
+    align-items: center;
+}
 
-        #name-footer {
-            color: rgb(8, 13, 80);
-            font-size: clamp(30px, 3.75vw, 60px);
-        }
-        #socials-footer {
-            grid-area: socials;
-            height: 35px;
-            justify-self: flex-end;
-            display: flex;
-            gap: 0.781vw;
-            
-            .social-icon {
-                height: 35px;
-            }
-        }
+#name-footer {
+    color: rgb(8, 13, 80);
+    font-size: clamp(30px, 3.75vw, 60px);
+}
+
+#socials-footer {
+    grid-area: socials;
+    height: 35px;
+    justify-self: flex-end;
+    display: flex;
+    gap: 0.781vw;
+}
+
+#socials-footer .social-icon {
+    height: 35px;
+}
+
+#misc-footer {
+    grid-area: misc;
+    display: flex;
+    flex-flow: column;
+}
+
+#copyright-footer {
+    padding: 0 0 2vh 0;
+    margin-top: auto;
+}
+
+#links-footer {
+    padding-top: 2vh;
+    display: flex;
+    flex-flow: column;
+    gap: 1vh;
+    list-style: none;
+}
+
+#links-footer li {
+    width: 40%;
+}
+
+#links-footer .footLinks {
+    color: rgba(0, 0, 0, 0.753);
+    font-size: 17px;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 760px) {
+    footer {
+        height: 360px;
     }
-
-    #misc-footer {
-        grid-area: misc;
-        display: flex;
-        flex-flow: column;
-
-        #links-footer {
-            padding-top: 2vh;
-            display: flex;
-            flex-flow: column;
-            gap: 1vh;
-            list-style: none;
-    
-            li {
-                width: 40%;
-            }
-    
-            .footLinks {
-                color: rgba(0, 0, 0, 0.753);
-                font-size: 17px;
-                text-decoration: none;
-            }
-        }
-        #copyright-footer {
-            padding: 0 0 2vh 0;
-            margin-top: auto;
-        }
+    #copyright-footer {
+        padding: 0 0 21.6px 0;
+        margin: auto auto 0 auto;
+    }
+    #links-footer {
+        padding-top: 14.4px;
+        gap: 7.2px;
     }
 }

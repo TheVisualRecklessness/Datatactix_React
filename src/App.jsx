@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import accordionContext from "./data/accordionContext";
 import { useState } from 'react';
 import Home from "./views/Home";
-import About from "./views/About";
 import Services from "./views/Services";
 
 function App() {
@@ -20,10 +19,9 @@ function App() {
         <Routes>
             <Route path="/*" element={<Home />}></Route>
             <Route path="/Services" element={<Services />}></Route>
-            <Route path="/About" element={<About />}></Route>
         </Routes>
-    </Router>
-  </accordionContext.Provider>
+      </Router>
+    </accordionContext.Provider>
   );
 }
 
