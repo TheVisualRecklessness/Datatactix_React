@@ -96,12 +96,19 @@ const NavBar = () => {
         };
 
         const contact = document.querySelectorAll(".contact-link");
+        const about = document.querySelectorAll(".about-link");
         contact.forEach(link => {
+            link.addEventListener("click", offsetScroll);
+        });
+        about.forEach(link => {
             link.addEventListener("click", offsetScroll);
         });
 
         return () => {
             contact.forEach(link => {
+                link.removeEventListener("click", offsetScroll);
+            });
+            about.forEach(link => {
                 link.removeEventListener("click", offsetScroll);
             });
         };
@@ -226,6 +233,7 @@ const NavBar = () => {
                                     })}
                                 </ul>
                             </li>
+                            <li className="menu-list"><HashLink className="mobile-nav-link about-link" to="/#about-section">Sobre nosotros</HashLink></li>
                             <li className="menu-list"><HashLink className="mobile-nav-link contact-link" to="/#contact-section">Contacto</HashLink></li>
                         </ul>
                     </div>
@@ -242,6 +250,7 @@ const NavBar = () => {
                             </ul>
                         }
                     </div>
+                    <li><HashLink className="navLink about-link" to="/#about-section">Sobre nosotros</HashLink></li>
                     <li><HashLink className="navLink contact-link" to="/#contact-section">Contacto</HashLink></li>
                 </ul>
             </nav>

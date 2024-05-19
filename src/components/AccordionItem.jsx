@@ -1,6 +1,5 @@
 import Arrow from '../assets/right_arrow_head.svg';
 import { useState, useEffect, useRef, useContext } from 'react';
-import Card from "./Card";
 import accordionContext from "../data/accordionContext";
 
 const AccordionBody = ({ isOpen, steps }) => {
@@ -8,13 +7,11 @@ const AccordionBody = ({ isOpen, steps }) => {
     <div className={`accordion-body ${isOpen ? 'open' : 'closed'}`}>
         {steps.map(step => {
           return (
-            <Card
-              key={step.stepId}
-              image={step.image}
-              title={step.stepName}
-              description={step.stepDescription}
-              id={step.stepId}
-            />
+            <div key={step.stepId} className="service-individual">
+              <img src={step.image} alt={step.stepName} />
+              <h3>{step.stepName}</h3>
+              <p>{step.stepDescription}</p>
+            </div>
           );
         })}
     </div>

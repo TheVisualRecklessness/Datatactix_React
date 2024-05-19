@@ -5,13 +5,13 @@ export const servicesData = [
         steps: [
             {
                 stepId: 1,
-                image: "https://media.istockphoto.com/id/1480239219/es/foto/un-analista-utiliza-una-computadora-y-un-panel-de-control-para-el-an%C3%A1lisis-de-negocios-de.jpg?s=612x612&w=0&k=20&c=BYWWoy2RordEovmXC5gWexCm529iXMgPZp6RoAXgpp8=",
+                image: require("../assets/database.png"),
                 stepName: "Recopilación e Integración de Datos",
                 stepDescription: "Recopilar y consolidar datos dispersos de múltiples fuentes en una única fuente."
             },
             {
                 stepId: 2,
-                image: "https://media.istockphoto.com/id/1402667894/es/foto/pantalla-de-conferencia-de-energ%C3%ADa.jpg?s=612x612&w=0&k=20&c=if8B0E4TJ1ohnU-yZKGXosQfx2ctOh7JTWllo6VxWkc=",
+                image: require("../assets/gauss.jpg"),
                 stepName: "Análisis Profundo y Acción Inteligente",
                 stepDescription: "Análisis descriptivos hasta predictivos y prescriptivos."
             },

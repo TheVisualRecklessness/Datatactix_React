@@ -71,6 +71,7 @@ const Contact = () => {
                     setAlert(true);
 
                     alertText.textContent = "¡Gracias por tu mensaje! Nos pondremos en contacto contigo lo antes posible.";
+                    alertText.classList.remove('alert-fade');
                     alertText.classList.add('alert-success');
 
                     setTimeout(() => {
